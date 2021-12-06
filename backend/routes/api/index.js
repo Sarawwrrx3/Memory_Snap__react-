@@ -8,7 +8,7 @@ const usersRouter = require("./users.js");
 router.use("/session", sessionRouter);
 // router.use("/albums", albumRouter);
 router.use("/users", usersRouter);
-router.use("/photos", photosRouter);
+// router.use("/photos", photosRouter);
 // const apiRouter = require('./api');
 
 // All the URLs of the routes in the api router will be prefixed with /api.
@@ -60,7 +60,7 @@ router.use("/photos", photosRouter);
 //   res.send('Hello World!');
 // });
 
-//? test ROUTE
+//? test ROUTE ----- POST /api/test
 // router.post('/test', (req, res) => {
 //   res.json({ requestBody: req.body });
 // });
