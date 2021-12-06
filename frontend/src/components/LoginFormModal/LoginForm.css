@@ -1,0 +1,71 @@
+ * { box-sizing: border-box;  }
+ 
+ .login-index-container {
+     background-color: transparent;
+ }
+ .login-text {
+     background-color: transparent;
+ }
+/* body {
+  background:
+    linear-gradient(
+    rgba(246,247,249,0.8),
+    rgba(246,247,249,0.8)),
+    url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/sky-clouds-cloudy-mountain.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+  */
+ 
+ 
+ 
+ 
+ /* @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800'); */
+
+
+
+
+ 
+/* {
+    box-sizing: border-box;
+} */
+
+/* .login-index-container {
+    background: #e4e0e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    margin: -20px 0 50px;
+} */
+
+ /* .login-button {
+
+}  */
+
+/* button {
+    border-radius: 20px;
+    border: 1px solid #b12bff;
+    background-color: #b12bff;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+}
+
+button.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
+}  */

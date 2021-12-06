@@ -1,0 +1,70 @@
+
+
+.home-navlink {
+    font-size: 2.0em;
+    background-color: transparent;
+    font-weight: bold;
+    text-shadow: 1px 2px 5px rgba(209, 192, 202, 0.1),
+                 2px 4px 5px rgba(209, 192, 202.05),
+                 -2px 4px 5px rgba(209, 192, 202.05);
+}
+
+.home-navlink:link {
+    text-decoration: none;
+
+}
+
+.nav-li-index-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: #D66D75;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E29587, #D66D75);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E29587, #D66D75); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.nav-user-btn {
+    display: flex;
+    align-content:space-around
+}
+
+/* .profile-dropdown {
+    position:absolute
+} */
+
+.nav-user-btn:hover > ul.profile-dropdown li {
+    
+    display: flex;
+    flex: -2;
+}
+
+.nav-user-btn > ul.profile-dropdown {
+    position: absolute;
+    display: flex;
+    left: 0;
+    top: 100%;
+    width: 100%;
+
+}
+
+.side-nav {
+    position: relative;
+    background-color: transparent;
+    
+    /* z-index: 1;
+    top: 0;
+    left: 00;
+    overflow-x: hidden;
+    padding-top: 20px; */
+}
+
+li {
+    list-style-type: none;
+}
+
+.signup-nav-button {
+    background-color: transparent;
+    font-weight: bold;
+}
