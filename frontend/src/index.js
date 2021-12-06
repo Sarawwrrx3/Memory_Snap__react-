@@ -4,6 +4,8 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { Provider as ReduxProvider } from "react-redux";
 import App from "./App";
+import "../node_modules/font-awesome/css/font-awesome.min.css"; 
+
 
 import { ModalProvider } from "./context/Modal";
 
