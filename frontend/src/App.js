@@ -7,6 +7,7 @@ import * as sessionActions from "./store/session";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import SplashPage from "./components/SplashPage";
+import Home from "./components/Home";
 
 
 
@@ -22,7 +23,6 @@ function App() {
             <Navigation isLoaded={isLoaded} />
             {isLoaded && (
                 <Switch>
-                
                     <Route exact path="/">
                         <SplashPage />
                     </Route>
@@ -31,6 +31,9 @@ function App() {
                         <SignupFormPage />
                     </Route>
 
+                    <Route path="/home">
+                        <Home />
+                    </Route>
                 </Switch>
             )}
         </>

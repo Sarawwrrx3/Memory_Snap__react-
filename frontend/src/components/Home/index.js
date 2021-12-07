@@ -5,12 +5,21 @@ import { getAllThePhotos } from "../../store/photos";
 
 function Home() {
     const dispatch = useDispatch();
+    const photos = useSelector(state => state.photo)
 
     useEffect(() => {
         dispatch(getAllThePhotos());
     }, [dispatch]);
 
-    return <div></div>;
+    return (
+        <div>
+            <ul>
+                {Object.values(photos).map((photo) => (
+                    <li key={photos.id}>{photo.title}</li>
+                ))}
+            </ul>
+        </div>
+    );
 }
 
 export default Home;
