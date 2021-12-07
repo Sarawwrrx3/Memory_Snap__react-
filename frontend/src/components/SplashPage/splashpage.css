@@ -1,0 +1,350 @@
+
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+
+/* ========================================================================== ^/
+/^   Base styles: opinionated defaults
+/^ ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+    height: 100%;
+    box-sizing: border-box;
+
+    background: #fff;
+}
+/* apply a natural box layout model to all elements, but allowing components to change */
+*, *:before, *:after { box-sizing: inherit; }
+
+body { 
+    height: 100%;
+}
+
+/* Remove text-shadow in selection highlight:
+ * https://twitter.com/ */
+::-moz-selection { background: #b3d4fc; text-shadow: none; }
+::selection { background: #b3d4fc; text-shadow: none; }
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/* Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440 */
+
+audio, canvas, iframe, img, svg, video { vertical-align: middle; }
+
+/* Remove default fieldset styles. */
+fieldset { border: 0; margin: 0; padding: 0; }
+
+/* Allow only vertical resizing of textareas. */
+textarea { resize: vertical; }
+
+
+a { color: #5682D8; text-decoration: none; }
+a:hover { color: #666; }
+
+/* ========================================================================== ^/
+/^   Page Wrappers
+/^ ========================================================================== */
+
+.page-wrapper {
+	height: 100%;
+
+	color: #666;
+	font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+section::before, section::after { content: " "; display: table; }
+section::after { clear: both; }
+
+.content-wrapper {
+	width: 260px;
+	margin: 0 auto;
+
+	position: relative;
+	
+	margin-top: 80px;
+}
+
+@media only screen and (min-width: 601px) {
+	.content-wrapper {
+		width: 340px;
+	}
+}
+
+/* ========================================================================== ^/
+/^   Header Logo section
+/^ ========================================================================== */
+
+.header-logo {
+	height: calc(100% - 420px);
+	min-height: 80px;
+	max-height: 300px;
+	position: relative;
+
+}
+.header-logo .content-wrapper {
+	height: 100%;
+}
+.header-logo .logo-container {
+	min-height: 60px;
+	position: relative;
+	top: calc(50% - 30px);
+	text-align: center;
+}
+.header-logo .logo-container img { 
+	max-width: 40px;
+	height: auto;
+}
+.header-logo .logo-container p {
+	margin: 8px 0 0;
+	color: #666;
+	font-size: 18px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+@media only screen and (min-width: 601px) {
+	.header-logo {
+		min-height: 140px;
+	}
+	.header-logo .logo-container {
+		height: 140px;
+		top: calc(50% - 60px);
+	}
+    .header-logo .logo-container img { 
+		max-width: 90px;
+	}
+	.header-logo .logo-container p {
+		font-size: 30px;
+	}
+}
+
+/* ========================================================================== ^/
+/^   Login Form
+/^ ========================================================================== */
+
+.login-form {
+	height: 300px;
+}
+.form-alert {
+	display: none;
+	padding: 4px 10px;
+	margin-bottom: 1px;
+
+	color: #fff;
+	text-align: center;
+	background-color: #93778a;
+}
+.form-alert span {
+	display: block;
+	color: #fff;
+}
+.form-field {
+	position: relative;
+	margin-bottom: 5px;
+}
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field input[type="password"],
+.form-field input[type="submit"],
+.form-field textarea,
+.form-field select { 
+	width: 100%;
+	height: 32px;
+	margin: 3px 0 0;
+
+	padding: 0 10px;
+	line-height: 14px;
+	text-align: left;
+
+	background-color: #fff;
+	border: 1px solid #ddd;
+}
+.form-field input[type="text"]:focus,
+.form-field input[type="email"]:focus,
+.form-field input[type="password"]:focus,
+.form-field textarea:focus,
+.form-field select:focus { 
+	border: 1px solid #999;
+}
+.form-field input[type="submit"] {
+	margin-top: 10px;
+	font-weight: 500;
+	text-align: center;
+	background-color: #ddd;
+	border-radius: 20px;
+}
+.form-field input[type="submit"]:hover {
+	background-color: #fff;
+	border: 2px solid #ddd;
+}
+.form-field textarea {
+	min-height: 140px;
+}
+.form-field select {
+	padding: 0 6px;
+}
+.form-field label {
+	font-size: 10px;
+	line-height: 13px;
+	text-transform: uppercase;
+}
+.form-field input:focus ~ label { 
+	display: none;
+}
+.form-text {
+	margin: 10px 0;
+	text-align: center;
+}
+
+/* ========================================================================== ^/
+/^   Social Login Buttons
+/^ ========================================================================== */
+
+.social-login {  
+	margin-bottom: 40px; 
+}
+.social-login p { 
+	margin: 10px 0 5px 0;
+	text-align: center;
+}
+.social-login .network-login {
+	display: block;
+	width: calc(50% - 1px);
+	height: 36px;
+	margin: 0 1px 1px 0;
+	padding: 10px 10px 10px 25px;
+	float: left;
+	position: relative;
+
+	color: #fff;
+	font-weight: 500;
+	text-align: center;
+	background-color: #8B9BAF;
+}
+.social-login .network-login:hover { 
+	opacity: 0.8;
+}
+.social-login .network-login > svg { 
+	fill: currentColor;
+	position: absolute;
+	top: 11px;
+	left: 10px;
+}
+.social-login .facebook-login { background-color: #3b5998; }
+.social-login .twitter-login { background-color: #00aced; }
+.social-login .google-login { background-color: #dd4b39; }
+.social-login .linkedin-login { background-color: #007bb6; }
+
+
+/* ========================================================================== ^/
+/^   Register Form Link
+/^ ========================================================================== */
+
+.language-switcher {
+	height: 80px;
+    margin-bottom: 40px;
+}
+.language-switcher label {
+	display: none;
+}
+
+
+/* ========================================================================== ^/
+/^   Helper classes
+/^ ========================================================================== */
+
+/* Hide visually and from screen readers: */
+.hidden { display: none !important; }
+
+/* Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/* Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638 */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/* Hide visually and from screen readers, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* Clearfix */
+.cf::before, .cf::after { content: " "; display: table; }
+.cf::after { clear: both; }
+
+
+/* Chicago Cafe */
+body {
+    background-image: url("./image/photo-album-pictures-photography2.jpeg");
+    background-repeat: none;
+    background-size: cover;
+    color: #fff;
+}
+.page-wrapper p {
+    color: #fff;
+}
+.content-wrapper p {
+    text-align: center;
+}
+.header-logo .logo-container {
+    text-align: center;
+}
+.header-logo .logo-container img { 
+	max-width: initial;
+	height: auto;
+}
+.social-login-buttons {
+    text-align: center;  
+}
+.social-login-buttons a {
+    padding: 0 10px;
+}
+.login-form-container {
+    display: none;
+}
+.login-form-container label {
+    color: #fff;
+}
+.login-form-container .login-submit {
+    text-align: center;
+}
+.login-form-container input[type="submit"] {
+    width: auto;
+}
+.lang-select {
+    background-color: transparent !important;
+    color: #fff;
+}
+.lang-select option {
+    color: #000;
+}
