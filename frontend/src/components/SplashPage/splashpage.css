@@ -305,9 +305,11 @@ section::after { clear: both; }
 
 /* Chicago Cafe */
 body {
-    background-image: url("./image/photo-album-pictures-photography2.jpeg");
+    background-image: url("./images/photo-album-pictures-photography2.jpeg");
     background-repeat: none;
     background-size: cover;
+    /* darkens */
+    filter: brightness(50%); 
     color: #fff;
 }
 .page-wrapper p {
@@ -347,4 +349,9 @@ body {
 }
 .lang-select option {
     color: #000;
+}
+/****************************/
+
+.social-icons {
+    width: 50px; 
 }

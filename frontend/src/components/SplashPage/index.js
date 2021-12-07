@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+// import { useState, useEffect } from "react";
+// import { useDispatch } from "react-redux";
 import LoginFormModal from "../LoginFormModal";
+import Navigation from "../Navigation";
 import "./splashpage.css";
+import facebookIcon from "./images/social-media-facebook_icon.png";
+import twitterIcon from "./images/social-media-twitter_icon.png";
+import instagramIcon from "./images/social-media-instagram-icon.png";
 
 function SplashPage() {
     return (
@@ -10,8 +15,9 @@ function SplashPage() {
                 <div class="content-wrapper">
                     <div class="logo">
                         <img
-                            src="./image/photo-album-pictures-photography2.jpeg"
+                            src={facebookIcon}
                             alt="landing-main-pic"
+                            className="social-icons"
                         />
                     </div>
                 </div>
@@ -21,24 +27,27 @@ function SplashPage() {
                 <div class="content-wrapper">
                     <p>Login to our WiFi with Social Media</p>
                     <div class="social-login-buttons cf">
-                        <a href="facebook.com">
-                            <img
-                                src="./image/facebook-btn.png"
-                                alt="facebook-icon-btn"
-                            />
-                        </a>
-                        <a href="twitter.com">
-                            <img
-                                src="./image/twitter-btn.png"
-                                alt="twitter-icon-btn"
-                            />
-                        </a>
-                        <a href="instagram.com">
-                            <img
-                                src="./image/instagram-btn.png"
-                                alt="instagram-icon-btn"
-                            />
-                        </a>
+                        {/* <a href="https://facebook.com"> */}
+                        <img
+                            ssrc={facebookIcon}
+                            alt="facebook-icon-btn"
+                            className="social-icons"
+                        />
+                        {/* </a>
+                        <a href="https://twitter.com"> */}
+                        <img
+                            src={twitterIcon}
+                            alt="twitter-icon-btn"
+                            className="social-icons"
+                        />
+                        {/* </a>
+                        <a href="https://instagram.com"> */}
+                        <img
+                            src={instagramIcon}
+                            alt="instagram-icon-btn"
+                            className="social-icons"
+                        />
+                        {/* </a> */}
                     </div>
                     {/* <p>Or login with our <a href="#" [[!RegistrationFormAuthAttr]]>form</a>. Already <a id="btn-login" href="#">registered?</a></p> */}
                     <div class="login-form-container cf">
