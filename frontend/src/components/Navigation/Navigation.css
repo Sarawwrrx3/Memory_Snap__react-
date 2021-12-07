@@ -2,9 +2,11 @@
 
 .home-navlink {
     font-size: 2.0em;
+    font-family: 'Meow Script', cursive;
     background-color: transparent;
     font-weight: bold;
     text-shadow: 1px 2px 5px rgba(209, 192, 202, 0.1),
+    
                  2px 4px 5px rgba(209, 192, 202.05),
                  -2px 4px 5px rgba(209, 192, 202.05);
 }
