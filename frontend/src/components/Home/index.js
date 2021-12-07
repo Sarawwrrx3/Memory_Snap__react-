@@ -14,9 +14,9 @@ function Home() {
     return (
         <div>
             <ul>
-                {Object.values(photos).map((photo) => (
+                {/* {Object.values(photos).map((photo) => (
                     <li key={photos.id}>{photo.title}</li>
-                ))}
+                ))} */}
             </ul>
         </div>
     );
