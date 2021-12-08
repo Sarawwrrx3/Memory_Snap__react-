@@ -137,3 +137,26 @@ code {
 .links > a:nth-of-type(9):hover ~ .line { --index: 9; }
 .links > a:nth-of-type(10):hover ~ .line { --index: 10; }
 .links > a:last-of-type:hover ~ .line { --index: var(--items); }
+
+
+
+/************ Main photo file ***********************/
+
+.main-photo-container {
+    text-align: center;
+    display: flex;
+    
+}
+
+.each-img {
+    border-radius: 10px;
+     max-width: 20rem;
+    height: auto;
+    margin: 10px;
+}
+
+.photo-list-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+
+}

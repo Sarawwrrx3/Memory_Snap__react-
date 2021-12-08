@@ -13,6 +13,7 @@
 
 .home-navlink:link {
     text-decoration: none;
+    
 
 }
 
@@ -20,13 +21,14 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    
+    padding: 10px;
     /* background: #D66D75;  fallback for old browsers */
     /* background: -webkit-linear-gradient(to right, #E29587, #D66D75);  Chrome 10-25, Safari 5.1-6 */
     /* background: linear-gradient(to right, #E29587, #D66D75); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
-
+.Nav-main-container { background-color: rgb(30, 29, 32);}
 .nav-user-btn {
     display: flex;
     align-content:space-around

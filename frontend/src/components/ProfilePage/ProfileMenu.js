@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProfilePage() {
+function ProfileMenu() {
     return (
         <div>
             <div className="header-wrapper">
@@ -39,9 +39,11 @@ function ProfilePage() {
     );
 }
 
-export default ProfilePage;
+export default ProfileMenu;
 
 // TODO: user's images and Albums
 // first LIst ------ be home?
 // change <a></a> tag to components?
 // inspiration : see note
+
+//! i might 

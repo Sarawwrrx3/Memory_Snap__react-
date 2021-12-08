@@ -200,7 +200,8 @@ const photosReducer = (state = initialState, action) => {
             // let photoObj = Object.assign({}, action.photos)
             const newState = {  };
             action.photos.forEach((photo) => {
-                newState[photo.id] = action.photo;
+                // newState[photo.id] = action.photo;
+                newState[photo.id] = photo;
             });
             return newState;
         }

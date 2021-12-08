@@ -6,6 +6,7 @@ import * as sessionActions from "./store/session";
 
 import { getPhotos } from "./store/photos";
 
+import "./index.css";
 // import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";

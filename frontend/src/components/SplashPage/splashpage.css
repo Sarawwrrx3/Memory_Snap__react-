@@ -304,13 +304,13 @@ section::after { clear: both; }
 
 
 /* Chicago Cafe */
-body {
-    background-image: url("./images/photo-album-pictures-photography2.jpeg");
+.page-wrapper {
+   	background-image: url("./images/photo-album-pictures-photography2.jpeg");
     background-repeat: none;
     background-size: cover;
-    /* darkens */
+	/* darkens */
     filter: brightness(50%); 
-    color: #fff;
+	
 }
 .page-wrapper p {
     color: #fff;

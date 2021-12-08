@@ -10,23 +10,19 @@ import instagramIcon from "./images/social-media-instagram-icon.png";
 
 function SplashPage() {
     return (
-        <div class="page-wrapper">
-            <section class="header-logo">
-                <div class="content-wrapper">
-                    <div class="logo">
-                        <img
-                            src={facebookIcon}
-                            alt="landing-main-pic"
-                            className="social-icons"
-                        />
+        <div className="page-wrapper">
+            <section className="header-logo">
+                <div className="content-wrapper">
+                    <div className="logo">
+                        <img src={facebookIcon} alt=" facebook-icon" />
                     </div>
                 </div>
             </section>
 
-            <section class="login-form">
-                <div class="content-wrapper">
+            <section className="login-form">
+                <div className="content-wrapper">
                     <p>Login to our WiFi with Social Media</p>
-                    <div class="social-login-buttons cf">
+                    <div className="social-login-buttons cf">
                         {/* <a href="https://facebook.com"> */}
                         <img
                             ssrc={facebookIcon}
@@ -50,16 +46,16 @@ function SplashPage() {
                         {/* </a> */}
                     </div>
                     {/* <p>Or login with our <a href="#" [[!RegistrationFormAuthAttr]]>form</a>. Already <a id="btn-login" href="#">registered?</a></p> */}
-                    <div class="login-form-container cf">
+                    <div className="login-form-container cf">
                         <LoginFormModal />
                     </div>
                 </div>
             </section>
 
-            {/* <section class="language-switcher cf">
-                <div class="content-wrapper">
+            {/* <section className="language-switcher cf">
+                <div className="content-wrapper">
                     <form>
-                        <div class="form-field switch-language">
+                        <div className="form-field switch-language">
                             [[!SelectLanguage]]
                         </div>
                     </form>

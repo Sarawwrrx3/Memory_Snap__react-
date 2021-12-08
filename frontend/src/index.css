@@ -10,3 +10,7 @@ font-family: 'Meow Script', cursive;
 font-family: 'Prompt', sans-serif;
 
 */ 
+
+* {
+    margin: 0;
+}
