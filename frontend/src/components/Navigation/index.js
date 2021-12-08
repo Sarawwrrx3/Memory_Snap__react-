@@ -28,7 +28,7 @@ function Navigation({ isLoaded }){
   return (
     <ul>
       <li className="nav-li-index-container">
-        <NavLink className="home-navlink" exact to="/">Memory Snap</NavLink>
+        <NavLink className="home-navlink" exact to="/home">Memory Snap</NavLink>
         {isLoaded && sessionLinks}
       </li>
     </ul>

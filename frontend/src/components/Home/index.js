@@ -5,7 +5,7 @@ import { getAllThePhotos } from "../../store/photos";
 
 function Home() {
     const dispatch = useDispatch();
-    const photos = useSelector(state => state.photo)
+    const photos = useSelector(state => state.photos)
 
     useEffect(() => {
         dispatch(getAllThePhotos());
@@ -14,9 +14,9 @@ function Home() {
     return (
         <div>
             <ul>
-                {/* {Object.values(photos).map((photo) => (
-                    <li key={photos.id}>{photo.title}</li>
-                ))} */}
+                {Object.values(photos).map((photo) => (
+                    <li key={photo.id}>{photo.content}</li>
+                ))}
             </ul>
         </div>
     );

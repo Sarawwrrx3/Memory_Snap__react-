@@ -3,6 +3,9 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 
 import * as sessionActions from "./store/session";
+
+import { getPhotos } from "./store/photos";
+
 // import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
@@ -14,7 +17,9 @@ import Home from "./components/Home";
 function App() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
+    
     useEffect(() => {
+        dispatch(getPhotos());
         dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     }, [dispatch]);
 
