@@ -89,7 +89,7 @@ export const editPhoto = (photoID, post) => async (dispatch) => {
             albumID,
             content,
             userID,
-            imageID: photoID,
+            photoID,
         })
     });
 
