@@ -6,6 +6,9 @@ import { getAllThePhotos } from "../../store/photos";
 function Home() {
     const dispatch = useDispatch();
     const photos = useSelector(state => state.photos)
+    // const photos = useSelector((state) => Object.values(state.photos));
+    console.log("reerere", photos)
+
 
     useEffect(() => {
         dispatch(getAllThePhotos());
@@ -14,9 +17,10 @@ function Home() {
     return (
         <div>
             <ul>
-                {Object.values(photos).map((photo) => (
+                {/* {Object.values(photos).map((photo) => (
+
                     <li key={photo.id}>{photo.content}</li>
-                ))}
+                ))} */}
             </ul>
         </div>
     );
