@@ -1,0 +1,35 @@
+/************ home ***********************/
+
+.home-photo-container {
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.each-img {
+    border-radius: 10px;
+    max-width: 20rem;
+    height: auto;
+    margin: 10px;
+}
+
+.photo-list-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+
+}
+
+.photo-list-container {
+    display: flex;
+  flex-wrap: wrap;
+  padding-top: 15px;
+  width: 80%;
+  height: 100%;
+  column-count: 4;
+  column-gap: 1em;
+}
+
+/******************* P1nt *********************/ 

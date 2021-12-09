@@ -1,37 +1,40 @@
-
-
 .home-navlink {
-    font-size: 2.0em;
-    font-family: 'Meow Script', cursive;
+    font-size: 2em;
+    font-family: "Meow Script", cursive;
     background-color: transparent;
     font-weight: bold;
     text-shadow: 1px 2px 5px rgba(209, 192, 202, 0.1),
-    
-                 2px 4px 5px rgba(209, 192, 202.05),
-                 -2px 4px 5px rgba(209, 192, 202.05);
+        2px 4px 5px rgba(209, 192, 202.05), -2px 4px 5px rgba(209, 192, 202.05);
 }
 
 .home-navlink:link {
     text-decoration: none;
-    
-
 }
 
 .nav-li-index-container {
     position: relative;
     display: flex;
     justify-content: space-between;
-    
+
     padding: 10px;
     /* background: #D66D75;  fallback for old browsers */
     /* background: -webkit-linear-gradient(to right, #E29587, #D66D75);  Chrome 10-25, Safari 5.1-6 */
     /* background: linear-gradient(to right, #E29587, #D66D75); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
-.Nav-main-container { background-color: rgb(30, 29, 32);}
+.Nav-main-container {
+    background-color: rgb(30, 29, 32);
+    flex: 1 1 auto;
+    height: 80px;
+    /* background-color: white; */
+    justify-content: center;
+    padding: 12px 4px 4px 16px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
 .nav-user-btn {
     display: flex;
-    align-content:space-around
+    align-content: space-around;
 }
 
 /* .profile-dropdown {
@@ -39,7 +42,6 @@
 } */
 
 .nav-user-btn:hover > ul.profile-dropdown li {
-    
     display: flex;
     flex: -2;
 }
@@ -50,13 +52,12 @@
     left: 0;
     top: 100%;
     width: 100%;
-
 }
 
 .side-nav {
     position: relative;
     background-color: transparent;
-    
+
     /* z-index: 1;
     top: 0;
     left: 00;
@@ -71,4 +72,54 @@ li {
 .signup-nav-button {
     background-color: transparent;
     font-weight: bold;
+}
+
+/************** SEARCH **********/
+
+.header__search {
+    flex: 1;
+}
+
+.header__searchContainer {
+    background-color: #efefef;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    width: 100%;
+    border-radius: 50px;
+    border: none;
+    padding-left: 10px;
+}
+
+.header__searchContainer:hover {
+    background-color: #e2e2e2;
+}
+
+.header__searchContainer > form {
+    display: flex;
+    flex: 1;
+}
+
+.header__searchContainer > form > input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+.header__searchContainer > form > input:focus {
+    outline: none;
+}
+.header__searchContainer > form > input:active {
+    outline: none;
+}
+
+.header__searchContainer > form > input:hover {
+    outline: none;
+}
+
+.header__searchContainer > form > button {
+    display: none;
 }

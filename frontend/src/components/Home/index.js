@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-
+// import { Link } from "react-router-dom";
+import "./home.css";
 
 import { getAllThePhotos } from "../../store/photos";
 
@@ -11,19 +11,15 @@ function Home() {
     const photosArr = useSelector((state) => Object.values(state.photos));
     // console.log("reerere", photos)
 
-
     useEffect(() => {
         dispatch(getAllThePhotos());
     }, [dispatch]);
 
     return (
-        <div className="main-photo-container">
-            <Link className="link-profile" to="/home">
-                <button className="go-to-profile-btn">Profile</button>
-            </Link>
+        <div className="home-photo-container">
             <div className="photo-list-container">
-                {photosArr.map((image) => (
-                    <div key={image.id}>
+                {photosArr.map((image, index) => (
+                    <div key={index}>
                         <img
                             className="each-img"
                             src={image.imageUrl}

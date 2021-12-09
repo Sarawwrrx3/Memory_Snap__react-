@@ -140,23 +140,3 @@ code {
 
 
 
-/************ Main photo file ***********************/
-
-.main-photo-container {
-    text-align: center;
-    display: flex;
-    
-}
-
-.each-img {
-    border-radius: 10px;
-     max-width: 20rem;
-    height: auto;
-    margin: 10px;
-}
-
-.photo-list-container {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-
-}
