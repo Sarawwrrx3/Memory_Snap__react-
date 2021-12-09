@@ -13,5 +13,19 @@ font-family: 'Prompt', sans-serif;
 
 * {
     margin: 0;
-    ackground: #e4e0e9;
+    background-color: #e4e0e9;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+body, div { 
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0; 
 }

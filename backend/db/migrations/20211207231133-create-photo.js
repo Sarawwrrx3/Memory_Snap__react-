@@ -16,6 +16,13 @@ module.exports = {
                 key: "id",
             },
         },
+        title: {
+            allowNull: false,
+            type: Sequelize.STRING(100),
+        },
+        description: {
+            type: Sequelize.TEXT,
+        },
         albumID: {
             allowNull: false,
             type: Sequelize.INTEGER,
