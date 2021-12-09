@@ -48,8 +48,8 @@ function Navigation({ isLoaded }) {
             {/* <link rel="icon" type="image/png" href="./photo-camera-icon2.png" />*/}
             <a href="/home">
                 <img src={photoIcon} alt="photo-camera-icon" />
-                
             </a>
+
 
             <li className="nav-li-index-container">
                 <NavLink className="home-navlink" exact to="/home">

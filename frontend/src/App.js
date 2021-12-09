@@ -13,7 +13,7 @@ import Navigation from "./components/Navigation";
 import SplashPage from "./components/SplashPage";
 import Home from "./components/Home";
 import PhotoModal from "./components/PhotoModal";
-// import OnePhotoPin from "./components/OnePhotoPin";
+import OnePhotoPin from "./components/OnePhotoPin";
 
 
 
@@ -45,6 +45,10 @@ function App() {
 
                     <Route path="/photos/:photoID">
                         <PhotoModal />
+                    </Route>
+
+                    <Route path="/photos/:photoID">
+                        <OnePhotoPin />
                     </Route>
                 </Switch>
             )}
