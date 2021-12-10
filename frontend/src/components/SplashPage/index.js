@@ -7,15 +7,17 @@ import "./splashpage.css";
 import facebookIcon from "./images/social-media-facebook_icon.png";
 import twitterIcon from "./images/social-media-twitter_icon.png";
 import instagramIcon from "./images/social-media-instagram-icon.png";
+import photoAlbumPicture from "./images/photo-album-pictures-photography2.jpeg"
 
 function SplashPage() {
     return (
         <div className="page-wrapper">
+            <img src={photoAlbumPicture} alt="main-splash-img" />
             <section className="header-logo">
                 <div className="content-wrapper">
-                    <div className="logo">
-                        <img src={facebookIcon} alt=" facebook-icon" />
-                    </div>
+                    {/* <div className="logo">
+                        <img src={photoAlbumPicture} alt=" facebook-icon" />
+                    </div> */}
                 </div>
             </section>
 

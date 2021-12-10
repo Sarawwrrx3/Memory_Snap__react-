@@ -1,3 +1,9 @@
+
+.nav-main-container {
+    background-color: rgba(39, 28, 70, 0.165);
+    display: flex;
+}
+
 .home-navlink {
     font-size: 2em;
     font-family: "Meow Script", cursive;
@@ -11,7 +17,7 @@
     text-decoration: none;
 }
 
-.nav-li-index-container {
+.nav-li-home-container {
     position: relative;
     display: flex;
     justify-content: space-between;

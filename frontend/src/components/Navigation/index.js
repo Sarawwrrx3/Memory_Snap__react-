@@ -44,7 +44,7 @@ function Navigation({ isLoaded }) {
     };
 
     return (
-        <div className="Nav-main-container">
+        <div className="nav-main-container">
             {/* <link rel="icon" type="image/png" href="./photo-camera-icon2.png" />*/}
             <a href="/home">
                 <img
@@ -54,7 +54,7 @@ function Navigation({ isLoaded }) {
                 />
             </a>
 
-            <li className="nav-li-index-container">
+            <li className="nav-li-home-container">
                 <NavLink className="home-navlink" exact to="/home">
                     Memory Snap
                 </NavLink>
