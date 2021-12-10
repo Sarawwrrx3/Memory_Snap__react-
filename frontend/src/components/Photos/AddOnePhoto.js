@@ -1,3 +1,6 @@
+//!from PhotoDetail
+
+
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -6,7 +9,7 @@ import "./photo.css";
 import { removePhoto, getOnePhoto } from "../../store/photos";
 
 
-function OnePhotoPin(props) {
+function AddOnePhoto(props) {
     const dispatch = useDispatch();
     const history = useHistory();
     const { photoID } = useParams(); // EX: http://localhost:3000/photos/18 ----- 18 ("photoID") from ---- APP.js ---- path="/photos/:photoID"
@@ -113,7 +116,7 @@ function OnePhotoPin(props) {
 
 // const styles = { small: {},medium:{}, large:{}}
 
-export default OnePhotoPin;
+export default AddOnePhoto;
 
 //? Similar to PhotoDetail ??
 // <div className="one-photo-container" style={{...styles.pin}}> </div>
@@ -121,3 +124,7 @@ export default OnePhotoPin;
 // class ====== pin_image = photo-detail
 
 // i might move the Span line 84 somewhere
+
+// upload ONE photo
+
+//! MAY NOT USE ANY OF THESE FILES. it will used in AddPhotoModal 

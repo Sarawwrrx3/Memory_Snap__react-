@@ -41,6 +41,10 @@
     position:absolute
 } */
 
+.nav-camera-icon {
+    width: 32px;
+}
+
 .nav-user-btn:hover > ul.profile-dropdown li {
     display: flex;
     flex: -2;

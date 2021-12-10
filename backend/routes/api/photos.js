@@ -16,12 +16,15 @@ const ValidationAddPhoto = [
         .withMessage("Please add an image url.")
         .isURL({ require_protocol: false, require_host: false })
         .withMessage("Please add a image link."),
-    check("content")
+    check("title")
         .exists({ checkFalsy: true })
         .withMessage("Please add a content."),
-    check("albumID")
+    check("description")
         .exists({ checkFalsy: true })
-        .withMessage("Please add to album."),
+        .withMessage("Please add a content."),
+    // check("albumID")
+    //     .exists({ checkFalsy: true })
+    //     .withMessage("Please add to album."),
 
     handleValidationErrors,
 ];

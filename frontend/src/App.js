@@ -12,9 +12,10 @@ import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import SplashPage from "./components/SplashPage";
 import Home from "./components/Home";
-import PhotoModal from "./components/PhotoModal";
-import OnePhotoPin from "./components/OnePhotoPin";
-
+import AddPhotoModal from "./components/PhotoModal/AddPhotoModal"; // since there's no "index". 
+// import AddOnePhoto from "./components/Photos/AddOnePhoto";
+// import ShowOnePhoto from "./components/Photos/ShowOnePhoto";
+import ShowPhotoModal from "./components/PhotoModal/ShowPhotoModal";
 
 
 function App() {
@@ -43,12 +44,12 @@ function App() {
                         <Home />
                     </Route>
 
-                    <Route path="/photos/:photoID">
-                        <PhotoModal />
+                    <Route path="/photos/add">
+                        <AddPhotoModal />
                     </Route>
 
                     <Route path="/photos/:photoID">
-                        <OnePhotoPin />
+                        <ShowPhotoModal />
                     </Route>
                 </Switch>
             )}

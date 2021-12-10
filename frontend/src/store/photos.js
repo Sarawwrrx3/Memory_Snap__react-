@@ -64,7 +64,7 @@ export const addManyPhotos = () => async (dispatch) => {
 
 // this is a thunk to add photo
 export const addPhoto = (photo) => async (dispatch) => {
-    const response = await csrfFetch(`/api/photos`, {
+    const response = await csrfFetch(`/api/photos/add`, {
         method: "POST",
         body: JSON.stringify(photo),
     });
