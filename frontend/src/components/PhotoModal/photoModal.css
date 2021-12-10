@@ -299,9 +299,38 @@
     margin: 10px;
 }
 
+.photo-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
 .photo-details h2 {
     font-weight: bold;
+    font-size: 2.5em;
     font-family: 'Readex Pro', sans-serif;
+}
+
+.photo-details p {
+    font-weight:300;
+        font-size: 1.5em;
+    font-family: 'Indie Flower', cursive;
+}
+
+.photo-detail-btn-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-row {
+    text-align: center;
+
+}
+
+.button-row  button {
+    width: 150px;
+    margin: 15px;
 }
 
 

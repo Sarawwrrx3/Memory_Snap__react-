@@ -6,11 +6,11 @@ import { useEffect } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { removePhoto, getOnePhoto, editPhoto } from "../../store/photos";
 
-import "./photoModal.css"
+import "./photoModal.css";
 
-import CloseIcon from "@mui/icons-material/Close";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+// import CloseIcon from "@mui/icons-material/Close";
+// import EditIcon from "@mui/icons-material/Edit";
+// import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 function ShowPhotoModal() {
     const dispatch = useDispatch();
@@ -45,11 +45,9 @@ function ShowPhotoModal() {
         const updateThePhoto = await dispatch(editPhoto(photoID));
         if (updateThePhoto) {
             // history.push(`/photos/${photoID}`);
-             history.push(`/photos/${photoID.id}/edit`);
+            history.push(`/photos/${photoID.id}/edit`);
         }
     };
-
-   
 
     // const handleClose = () => {
     //     setOpen(false);
@@ -68,7 +66,7 @@ function ShowPhotoModal() {
                     {/* <span className="photo-content">{photoSelect?.title}</span> */}
                 </div>
 
-                <div>
+                <div className="photo-detail-btn-container">
                     <div className="photo-details">
                         <h2>{photoSelect?.title} </h2>
                         <p> {photoSelect?.description}</p>
