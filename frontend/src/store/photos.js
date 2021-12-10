@@ -80,29 +80,51 @@ export const addPhoto = (photo) => async (dispatch) => {
 // `/api/photos/${photo.id}`
 export const editPhoto = (post, photoID) => async (dispatch) => {
     const { albumID, userID, title, description } = post;
-    console.log("freedman", post);
+    // console.log("freedman", post);
+    console.log("id postttt ", post); // id
+    // console.log("what is payload", payload); // undefined
     const response = await csrfFetch(`/api/photos/${photoID}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-            albumID,
-            userID,
-            title,
-            description,
-            photoID,
-        }),
+        body: JSON.stringify(post),
     });
+    console.log("green dragon", response);
 
     if (response.ok) {
         const photo = await response.json();
+        console.log("photoooooo", photo);
         dispatch(edit(photo));
         return photo;
     }
 };
 
+//  edit / update
+// `/api/photos/${photo.id}`
+// export const editPhoto = (post, photoID) => async (dispatch) => {
+//     const { albumID, userID, title, description } = post;
+//     console.log("freedman", post);
+//     const response = await csrfFetch(`/api/photos/${photoID}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({
+//             albumID,
+//             userID,
+//             title,
+//             description,
+//             photoID,
+//         }),
+//     });
 
+//     if (response.ok) {
+//         const photo = await response.json();
+//         dispatch(edit(photo));
+//         return photo;
+//     }
+// };
 
 export const getAllThePhotos = () => async (dispatch) => {
     const response = await fetch(`/api/photos`);
@@ -139,7 +161,6 @@ export const getOnePhoto = (photoID) => async (dispatch) => {
 
 // delete / remove
 export const removePhoto = (photoID) => async (dispatch) => {
-
     const response = await csrfFetch(`/api/photos/${photoID.id}`, {
         method: "DELETE",
     });
@@ -169,22 +190,33 @@ const photosReducer = (state = initialState, action) => {
             return newState;
 
         case EDIT_PHOTO:
-            if (!state[action.photo.id]) {
-                newState = { ...state, [action.photo.id]: action.photo };
-                return newState;
-            } else {
-                return {
-                    ...state,
-                    [action.photo.id]: {
-                        ...state[action.photo.id],
-                        ...action.photo,
-                    },
-                };
-            }
+            console.log("AAAAAACTION", action);
+            newState = { ...state };
+            console.log("newwww stateee", newState);
+            newState[action.photo.photo.id] = action.photo.photo;
+            return newState;
+
+        // if (!state[action.photo.id]) {
+        //     newState = { ...state, [action.photo.id]: action.photo };
+        //     return newState;
+        // } else {
+        //     return {
+        //         ...state,
+        //         [action.photo.id]: {
+        //             ...state[action.photo.id],
+        //             ...action.photo,
+        //         },
+        //     };
+        // }
+        // {
+        //     newState = { ...state };
+        //     newState[action.data.id] = action.data;
+        //     return newState;
+        // }
 
         case GET_ALL_PHOTOS: {
             // let photoObj = Object.assign({}, action.photos)
-            const newState = {  };
+            const newState = {};
             action.photos.forEach((photo) => {
                 // newState[photo.id] = action.photo;
                 newState[photo.id] = photo;
@@ -210,7 +242,7 @@ const photosReducer = (state = initialState, action) => {
             newState = { ...state };
             // console.log("tree lover", action.photo);
             delete newState[+action.photo.photoID]; // from res.json({photoID})
-            // photoID ---- key inside action.photo. 
+            // photoID ---- key inside action.photo.
             // action.photo is the object we sent in
 
             return newState;

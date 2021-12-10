@@ -19,6 +19,7 @@ function ShowPhotoModal() {
     const { photoID } = useParams(); // EX: http://localhost:3000/photos/18 ----- 18 ("photoID") from ---- APP.js ---- path="/photos/:photoID"
 
     const photoSelect = useSelector((state) => state.photos[photoID]);
+    // const post = useSelector((state) => state.photos[photoID] )
     // "photos" is from store/index.js ---- "photos: photosReducer,"
     console.log("photo from userSelector", photoSelect);
     // console.log("testing props", onePhoto);
@@ -39,16 +40,7 @@ function ShowPhotoModal() {
         }
     };
 
-    const handleUpdate = async (e, id) => {
-        e.preventDefault();
-        console.log("sfsdfsf----", photoID);
-        const updateThePhoto = await dispatch(editPhoto(photoID));
-        if (updateThePhoto) {
-            // history.push(`/photos/${photoID}`);
-            history.push(`/photos/${photoID.id}/edit`);
-        }
-    };
-
+   
     // const handleClose = () => {
     //     setOpen(false);
     // };
@@ -81,14 +73,9 @@ function ShowPhotoModal() {
                         </button>
                         <button
                             className="update-button"
-                            onClick={(e) => handleUpdate(e, photoID)}
+                            onClick={(e) => history.push(`/photos/${photoID}/edit`)}
                         >
-                            <Link
-                                className="edit-home"
-                                to={`/photos/${photoID}/edit`}
-                            >
-                                Update
-                            </Link>
+                          Update
                         </button>
                     </div>
                 </div>
