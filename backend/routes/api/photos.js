@@ -87,45 +87,18 @@ router.put(
     handleValidationErrors,
     asyncHandler(async (req, res) => {
         // console.log("sadfasdfds", req.body);
-        const { albumID, imageUrl, content, imageID } = req.body;
-        
+        const { albumID, imageUrl,  imageID } = req.body;
+        console.log("treeloverwww", req.body);
         const photo = await Photo.findByPk(imageID)
-        const updatedPhoto = photo.update({content, albumID, imageUrl})
-        // const photo = Photo.build({
-        //     albumID,
-        //     imageUrl,
-        //     content,
-        // });
- 
-        // const validateAddPhoto = validationResult(req);
+        const updatedPhoto = photo.update({
+            title,
+            description,
+            albumID,
+            imageUrl,
+        });
 
-        // if (validateAddPhoto.isEmpty()) {
-        //     // await photo.save();
             return res.json(photo);
-        // } else {
-        //     // const errors = validatorErrors.array().map((error) => error.msg);
-        //     // res.render("/photos/add", {
-        //     //     title: "Add Book",
-        //     //     book,
-        //     //     errors,
-        //     //     csrfToken: req.csrfToken(),
-        //     // });
-        //     return res.redirect(`/${req.baseUrl}/${photo.id}`);
-        // }
-        // ==================================
-        // const photoId = req.params.id;
-        // const { content, imgUrl } = req.body;
-        // const photo = await db.Photos.findByPk(photoId);
-        // const validateAddPhoto = validationResult(req);
-
-        // photo.update({ title, imgUrl });
-
-        // if (validateAddPhoto.isEmpty()) {
-        //     await photo.save();
-        //     return res.json(photo);
-        // } else {
-        //     return res.redirect(`/${req.baseUrl}/${photo.id}`);
-        // }
+        
     })
 );
 

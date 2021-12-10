@@ -77,9 +77,10 @@ export const addPhoto = (photo) => async (dispatch) => {
 };
 
 //  edit / update
-export const editPhoto = (photoID, post) => async (dispatch) => {
-    const { albumID, content, userID } = post;
-
+// `/api/photos/${photo.id}`
+export const editPhoto = (post, photoID) => async (dispatch) => {
+    const { albumID, userID, title, description } = post;
+    console.log("freedman", post);
     const response = await csrfFetch(`/api/photos/${photoID}`, {
         method: "PUT",
         headers: {
@@ -87,10 +88,11 @@ export const editPhoto = (photoID, post) => async (dispatch) => {
         },
         body: JSON.stringify({
             albumID,
-            content,
             userID,
+            title,
+            description,
             photoID,
-        })
+        }),
     });
 
     if (response.ok) {
@@ -99,24 +101,8 @@ export const editPhoto = (photoID, post) => async (dispatch) => {
         return photo;
     }
 };
-// `/api/photos/${photo.id}`
 
-//  edit / update
-// export const editPhoto = (photo) => async (dispatch) => {
-//     const response = await fetch(`/api/photos/${photo.id}`, {
-//         method: "PUT",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(photo),
-//     });
 
-//     if (response.ok) {
-//         const photo = await response.json();
-//         dispatch(edit(photo));
-//         return photo;
-//     }
-// };
 
 export const getAllThePhotos = () => async (dispatch) => {
     const response = await fetch(`/api/photos`);
@@ -154,7 +140,7 @@ export const getOnePhoto = (photoID) => async (dispatch) => {
 // delete / remove
 export const removePhoto = (photoID) => async (dispatch) => {
 
-    const response = await csrfFetch(`/api/photos/${photoID}`, {
+    const response = await csrfFetch(`/api/photos/${photoID.id}`, {
         method: "DELETE",
     });
     if (response.ok) {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { editPhoto, getAllThePhotos } from "../../store/photos";
+import { editPhoto } from "../../store/photos";
 
 import "./photoModal.css";
 
@@ -10,25 +10,30 @@ function EditPhotoModal() {
     const history = useHistory();
     const { photoID } = useParams();
 
-    const [content, setContent] = useState("");
-    const [imgUrl, setImgUrl] = useState("");
+    const [title, setTitle] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
+    const [description, setDescription] = useState("")
     const [validationErrors, setValidationErrors] = useState([]);
 
-    const validTitle = (e) => setContent(e.target.value);
-    // const validImgUrl = (e) => setImgUrl(e.target.value);
+    const validTitle = (e) => setTitle(e.target.value);
+    const validImageUrl = (e) => setImageUrl(e.target.value);
+    const validDescription = (e) => setDescription(e.target.value);
 
     const userId = useSelector((state) => state.session?.user?.id);
     const photoSelect = useSelector((store) => store.photos[photoID]);
     // console.log("gfsdfgdf", photoSelect);
 
     useEffect(() => {
-        // dispatch(getAllThePhotos());
         const errors = [];
-        if (content.length > 20)
-            errors.push("content must be less than 20 characters");
-        if (!imgUrl) errors.push("Upload an Image");
+
+        if (title.length > 50)
+            errors.push("Title must be less than 50 characters");
+        if (description.length > 200)
+            errors.push("Description must be less than 200 characters");
+        if (!imageUrl) errors.push("Upload an Image");
         setValidationErrors(errors);
-    }, [dispatch, content, imgUrl]);
+    }, [title, description, imageUrl]);
+
 
     // useEffect(() => {
     //     dispatch(getAllThePhotos());
@@ -36,7 +41,7 @@ function EditPhotoModal() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const post = { userId, content, imgUrl };
+        const post = { userId, title, description, imageUrl };
         // console.log("fgasdf", photoID);
         const editPost = await dispatch(editPhoto(photoID, post));
 
@@ -65,11 +70,11 @@ function EditPhotoModal() {
                         <img
                             id="image-upload"
                             src={photoSelect?.imageUrl}
-                            alt={photoSelect?.content}
+                            alt={photoSelect?.title}
                         />
                         {/* <span className="photo-title">{name}</span> */}
                         <span className="photo-content">
-                            {photoSelect?.content}
+                            {photoSelect?.title}
                         </span>
                     </div>
 
@@ -79,8 +84,20 @@ function EditPhotoModal() {
                             id="input-field"
                             type="text"
                             placeholder="New Content"
-                            value={content}
+                            value={title}
                             onChange={validTitle}
+                            required
+                        />
+                    </label>
+
+                    <label>
+                        Content
+                        <input
+                            id="input-field"
+                            type="text"
+                            placeholder="New Content"
+                            value={description}
+                            onChange={validDescription}
                             required
                         />
                     </label>

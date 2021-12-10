@@ -16,6 +16,7 @@ import AddPhotoModal from "./components/PhotoModal/AddPhotoModal"; // since ther
 // import AddOnePhoto from "./components/Photos/AddOnePhoto";
 // import ShowOnePhoto from "./components/Photos/ShowOnePhoto";
 import ShowPhotoModal from "./components/PhotoModal/ShowPhotoModal";
+import EditPhotoModal from "./components/PhotoModal/EditPhotoModal"
 
 
 function App() {
@@ -50,6 +51,10 @@ function App() {
 
                     <Route path="/photos/:photoID">
                         <ShowPhotoModal />
+                    </Route>
+
+                    <Route path="/photos/:photoID/edit">
+                        <EditPhotoModal />
                     </Route>
                 </Switch>
             )}
