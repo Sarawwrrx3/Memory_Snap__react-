@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { removePhoto, getOnePhoto, editPhoto } from "../../store/photos";
 
+import "./photoModal.css"
+
 import CloseIcon from "@mui/icons-material/Close";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";

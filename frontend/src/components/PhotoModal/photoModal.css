@@ -287,6 +287,8 @@
     overflow: hidden;
 
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 
@@ -297,8 +299,94 @@
     margin: 10px;
 }
 
-.photo-details  h {
+.photo-details h2 {
     font-weight: bold;
+    font-family: 'Readex Pro', sans-serif;
 }
 
 
+/********************* Delete Button *************************/ 
+
+
+/* <!-- HTML !-->
+<button class="button-24" role="button">Button 24</button> */
+
+/* CSS */
+.delete-button {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.delete-button:hover,
+.delete-button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+.delete-button:active {
+  opacity: .5;
+}
+
+/********************* EDIT Button *************************/ 
+
+
+/* <!-- HTML !-->
+<button class="button-24" role="button">Button 24</button> */
+
+/* CSS */
+.update-button {
+  background: #e9db62;
+  border: 1px solid #e9db62;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.update-button:hover,
+.update-button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #e9db62;
+}
+
+.update-button:active {
+  opacity: .5;
+}

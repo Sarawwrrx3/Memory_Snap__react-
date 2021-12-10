@@ -37,11 +37,12 @@ body, div {
     padding: 0; 
 }
 
+/********************** BUTTON 1 ***********************/
 
-button {
+/* button {
     border-radius: 20px;
     border: 1px solid #b12bff;
-    background-color: #b12bff;
+    background-color: #543c63;
     color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;
@@ -67,6 +68,48 @@ button.ghost {
 .cancel-button {
     border: 1px solid #910835;
     background-color: #910835;
+} */
+
+/********************** BUTTON 2 ***********************/
+
+/* <!-- HTML !-->
+<button class="button-24" role="button">Button 24</button> */
+
+/* CSS */
+.button {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.button:hover,
+.button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+.button:active {
+  opacity: .5;
 }
 
 /******************* FORMs *******************/
