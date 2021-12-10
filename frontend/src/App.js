@@ -55,7 +55,7 @@ function App() {
                         <AddPhotoModal />
                     </Route>
 
-                    <Route path="/photos/:photoID">
+                    <Route exact path="/photos/:photoID">
                         <ShowPhotoModal />
                     </Route>
 

@@ -79,7 +79,7 @@ router.post(
     })
 );
 
-// add image / add picture
+// EDIT image / Update picture
 router.put(
     "/:id(\\d+)",
     requireAuth,
@@ -87,17 +87,13 @@ router.put(
     handleValidationErrors,
     asyncHandler(async (req, res) => {
         // console.log("sadfasdfds", req.body);
-        const { albumID, imageUrl,  imageID } = req.body;
+        const { id, title, description, imageUrl } = req.body;
         console.log("treeloverwww", req.body);
-        const photo = await Photo.findByPk(imageID)
-        // const updatedPhoto = photo.update({
-        //     title,
-        //     description,
-        //     albumID,
-        //     imageUrl,
-        // });
-
-            return res.json(photo);
+        const photo = await Photo.findOne({where: {id}})
+      
+       const updatedPhoto = await photo.update({ title, description, imageUrl });
+        console.log("upppppddatedd photoo", updatedPhoto, photo);
+            return res.json({photo});
         
     })
 );

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAlbums } from "../../store/album";
 import albumLogo from "./album-book.png";
-import "./albums.css";
+import "./album.css";
 
 function AlbumList() {
     const dispatch = useDispatch();

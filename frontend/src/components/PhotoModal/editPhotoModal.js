@@ -12,7 +12,7 @@ function EditPhotoModal() {
 
     const [title, setTitle] = useState("");
     const [imageUrl, setImageUrl] = useState("");
-    const [description, setDescription] = useState("")
+    const [description, setDescription] = useState("");
     const [validationErrors, setValidationErrors] = useState([]);
 
     const validTitle = (e) => setTitle(e.target.value);
@@ -34,30 +34,44 @@ function EditPhotoModal() {
         setValidationErrors(errors);
     }, [title, description, imageUrl]);
 
-
     // useEffect(() => {
     //     dispatch(getAllThePhotos());
     // }, [dispatch]);
 
-    const handleSubmit = async (e) => {
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     const post = { userId, title, description, imageUrl };
+    //     // const post = { userId,  albumID, title, description  };
+    //     console.log("fgasdf", photoID);
+    //     const editPost = await dispatch(editPhoto(post, photoID));
+
+    //     // const editPost = await dispatch(editPhoto(post));
+
+    //     if (editPost) {
+    //         history.push(`/photos/${photoID}`);
+    //         // history.push(`/photos/${photo.id}`);
+    //     }
+
+    //     return editPost;
+    // };
+
+    const handleUpdate = async (e, id) => {
         e.preventDefault();
-        const post = { userId, title, description, imageUrl };
-        // console.log("fgasdf", photoID);
-        const editPost = await dispatch(editPhoto(photoID, post));
 
-        // const editPost = await dispatch(editPhoto(post));
-
-        if (editPost) {
+        const payload = { ...photoSelect, title, description, imageUrl, id:photoID };
+        console.log("show photo modal photoID", photoID); // photoID 11
+        const updateThePhoto = await dispatch(editPhoto(payload, photoID));
+        // photoSelect ------ "post" object
+        console.log("update the photo,", updateThePhoto);
+        if (updateThePhoto) {
             history.push(`/photos/${photoID}`);
-            // history.push(`/photos/${photo.id}`);
+            // history.push(`/photos/${photoID.id}/edit`);
         }
-
-        return editPost;
     };
 
     return (
         <div id="edit-photo-div">
-            <form className="edit-form-main" onSubmit={handleSubmit}>
+            <form className="edit-form-main" onSubmit={handleUpdate}>
                 <div id="edit-photo-title">
                     <div id="errors-for-img">
                         <ul>
@@ -79,42 +93,41 @@ function EditPhotoModal() {
                     </div>
 
                     <label>
-                        Content
+                        Title
                         <input
                             id="input-field"
                             type="text"
                             placeholder="New Content"
                             value={title}
-                            onChange={validTitle}
+                            onChange={(e) => setTitle(e.target.value)}
                             required
                         />
                     </label>
 
                     <label>
-                        Content
+                        Description
                         <input
                             id="input-field"
                             type="text"
                             placeholder="New Content"
                             value={description}
-                            onChange={validDescription}
+                            onChange={(e) => setDescription(e.target.value)}
                             required
                         />
                     </label>
                 </div>
                 <div id="add-image-url">
-                    {/* <label>
+                    <label>
                         ImageUrl
                         <input
                             id="input-field"
                             type="text"
                             required
                             placeholder="New Image Url"
-                            value={imgUrl}
-                            onChange={validImgUrl}
-                            required
+                            value={imageUrl}
+                            onChange={(e) => setImageUrl(e.target.value)}
                         />
-                    </label> */}
+                    </label>
                 </div>
                 <button id="post-updated-photo-btn" type="submit">
                     Edit Photo
