@@ -80,13 +80,13 @@ export const editAlbum = (album) => async (dispatch) => {
 
 
 // get more than one / get many 
-export const getAlbums = () => async (dispatch) => {
-    const res = await fetch("/api/albums");
+export const getAlbums = (user) => async (dispatch) => {
+    const res = await fetch(`/api/users/${user.id}/albums`);
     // console.log(res, "<----res");
 
     if (res.ok) {
         const albums = await res.json();
-        // console.log(albums, "<------getAlbums albums");
+        console.log(albums, "<------getAlbums albums");
         dispatch(loadAlbums(albums));
         return albums;
     }
@@ -152,10 +152,12 @@ const albumReducer = (state = initialState, action) => {
 
         case LOAD_ALBUMS: {
             newState = { ...state };
-
-            // console.log("fsdfaf--- ", action.album);
-            action.album?.forEach((album) => {
-                newState[action.album.id] = action.album;
+            console.log("watermelon", newState);
+            console.log("fsdfaf--- ", action);
+            action.album.albums.forEach((album) => {
+                console.log("Grreg", album);
+                // "albums" is from ------  const albums = await res.json();
+                newState[album.id] = action.album;
             });
             return newState;
         }

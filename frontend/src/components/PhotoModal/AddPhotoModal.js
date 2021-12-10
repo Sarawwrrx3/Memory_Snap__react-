@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { addPhoto } from "../../store/photos";
 // import { Modal } from "../../context/Modal";
 import  uploadGIF  from "./upload-animation.gif";
+import { getAlbums } from "../../store/album";
 
 import "./photoModal.css";
 
@@ -29,8 +30,9 @@ function AddPhotoModal() {
     const validDescription = (e) => setDescription(e.target.value);
     const validAlbum = (e) => setAlbum(e.target.value);
 
-    const userID = useSelector((state) => state.session?.user?.id);
-    const albumID = useSelector((state) => Object.values(state.albums));
+    const user = useSelector((state) => state.session.user);
+    const albums = useSelector((state) => Object.values(state.albums));
+    console.log("goatttt", albums);
 
     useEffect(() => {
         const errors = [];
@@ -41,13 +43,15 @@ function AddPhotoModal() {
             errors.push("Description must be less than 200 characters");
         if (!imageUrl) errors.push("Upload an Image");
         setValidationErrors(errors);
+
+        dispatch(getAlbums(user))
     }, [title, description, imageUrl]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const NewSinglePhotoData = {
-            userID,
+            userID: user.id,
             title,
             description,
             imageUrl,
@@ -118,11 +122,11 @@ function AddPhotoModal() {
                                 defaultValue="Select"
                                 name="album_name"
                                 id="album_name"
-                                value={album.id}
+                             
                                 onChange={(e) => setAlbum(e.target.value)}
                             >
                                 <option value={album}>Pick an Album</option>
-                                {albumID.map((album, index) => (
+                                {albums.map((album, index) => (
                                     <option key={index} value={album}>
                                         {album.title}
                                     </option>

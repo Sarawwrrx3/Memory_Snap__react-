@@ -62,14 +62,14 @@ router.post(
         // const { content, imgUrl, albumID } = req.body;
         // const body = req.body
         // console.log(body, '<--------body')
+        console.log("treelover", req.body);
         const photo = await Photo.create(req.body);
-        console.log("treelover", photo);
         const validateAddPhoto = validationResult(req);
 
         if (validateAddPhoto.isEmpty()) {
             // res.redirect(`/${req.baseUrl}/${photo.id}`);
             await photo.save();
-            console.log("This is the photo from the api backend.", photo);
+            // console.log("This is the photo from the api backend.", photo);
             return res.json(photo);
         } else {
             return res.json({
@@ -114,7 +114,7 @@ router.delete(
     // handleValidationErrors,
     asyncHandler(async (req, res, next ) => {
         const { photoID } = req.params;
-        console.log("asdfwerwer -----", photoID);
+        // console.log("asdfwerwer -----", photoID);
         // const photo = await Photo.findByPk(photoID);
         // const deletePic = await Photo.findByPk(req.params.id);
         const deletePic = await Photo.findByPk(photoID);
