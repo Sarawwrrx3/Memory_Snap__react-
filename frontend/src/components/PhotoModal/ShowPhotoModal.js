@@ -44,8 +44,8 @@ function ShowPhotoModal() {
         console.log("sfsdfsf----", photoID);
         const updateThePhoto = await dispatch(editPhoto(photoID));
         if (updateThePhoto) {
-            // history.push(`/photos/${photoID}`);
-            history.push(`/photos/${photoID.id}/edit`);
+            history.push(`/photos/${photoID}`);
+            // history.push(`/photos/${photoID.id}/edit`);
         }
     };
 

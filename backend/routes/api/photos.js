@@ -90,12 +90,12 @@ router.put(
         const { albumID, imageUrl,  imageID } = req.body;
         console.log("treeloverwww", req.body);
         const photo = await Photo.findByPk(imageID)
-        const updatedPhoto = photo.update({
-            title,
-            description,
-            albumID,
-            imageUrl,
-        });
+        // const updatedPhoto = photo.update({
+        //     title,
+        //     description,
+        //     albumID,
+        //     imageUrl,
+        // });
 
             return res.json(photo);
         

@@ -78,22 +78,19 @@ export const addPhoto = (photo) => async (dispatch) => {
 
 //  edit / update
 // `/api/photos/${photo.id}`
-export const editPhoto = (post, photoID) => async (dispatch) => {
-    const { albumID, userID, title, description } = post;
-    console.log("freedman", post);
+export const editPhoto = ( photoID) => async (dispatch) => {
+    // const { albumID, userID, title, description } = post;
+    // console.log("freedman", post);
+    console.log("id mandsds", photoID); // id 
+    // console.log("what is payload", payload); // undefined
     const response = await csrfFetch(`/api/photos/${photoID}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-            albumID,
-            userID,
-            title,
-            description,
-            photoID,
-        }),
+        body: JSON.stringify(photoID),
     });
+    console.log("green dragon", response);
 
     if (response.ok) {
         const photo = await response.json();
@@ -101,6 +98,33 @@ export const editPhoto = (post, photoID) => async (dispatch) => {
         return photo;
     }
 };
+
+
+//  edit / update
+// `/api/photos/${photo.id}`
+// export const editPhoto = (post, photoID) => async (dispatch) => {
+//     const { albumID, userID, title, description } = post;
+//     console.log("freedman", post);
+//     const response = await csrfFetch(`/api/photos/${photoID}`, {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({
+//             albumID,
+//             userID,
+//             title,
+//             description,
+//             photoID,
+//         }),
+//     });
+
+//     if (response.ok) {
+//         const photo = await response.json();
+//         dispatch(edit(photo));
+//         return photo;
+//     }
+// };
 
 
 
@@ -169,17 +193,22 @@ const photosReducer = (state = initialState, action) => {
             return newState;
 
         case EDIT_PHOTO:
-            if (!state[action.photo.id]) {
-                newState = { ...state, [action.photo.id]: action.photo };
+            // if (!state[action.photo.id]) {
+            //     newState = { ...state, [action.photo.id]: action.photo };
+            //     return newState;
+            // } else {
+            //     return {
+            //         ...state,
+            //         [action.photo.id]: {
+            //             ...state[action.photo.id],
+            //             ...action.photo,
+            //         },
+            //     };
+            // }
+            {
+                newState = { ...state };
+                newState[action.data.id] = action.data;
                 return newState;
-            } else {
-                return {
-                    ...state,
-                    [action.photo.id]: {
-                        ...state[action.photo.id],
-                        ...action.photo,
-                    },
-                };
             }
 
         case GET_ALL_PHOTOS: {

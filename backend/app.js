@@ -17,7 +17,6 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(express.json());
 
-
 // Security Middleware
 if (!isProduction) {
     // enable cors only in development
@@ -87,4 +86,41 @@ app.use((err, _req, res, _next) => {
         stack: isProduction ? null : err.stack,
     });
 });
+
+// from stackoverflow
+//stackoverflow.com/questions/58134287/catch-error-for-bad-json-format-thrown-by-express-json-middleware
+// https: app.use((err, req, res, next) => {
+//     if (err instanceof SyntaxError && err.status === 400 && "body" in err) {
+//         console.error(err);
+//         return res.status(400).send({ status: 404, message: err.message }); // Bad request
+//     }
+//     next();
+// });
+
+//stackoverflow.com/questions/15819337/catch-express-bodyparser-error
+// https: app.use(function (error, req, res, next) {
+//     if (error instanceof SyntaxError) {
+//         sendError(res, myCustomErrorMessage);
+//     } else {
+//         next();
+//     }
+// });
+
+//stackoverflow.com/questions/58134287/catch-error-for-bad-json-format-thrown-by-express-json-middleware
+// https: app.use((err, req, res, next) => {
+//     if (err instanceof SyntaxError && err.status === 400 && "body" in err) {
+//         if (err.type === "entity.parse.failed") {
+//             let data = req.body || req.query;
+//             try {
+//                 JSON.parse(data); // <-- reproduce error in order to catch it
+//             } catch (error) {
+//                 // get the first line of error which is "SyntaxError: Unexpected string in JSON at position 59"
+//                 let message = error.toString().split("\n")[0];
+//                 return res.status(400).send({ status: 400, message: message }); // Bad request
+//             }
+//         } else return res.status(400).send(err); // Bad request
+//     }
+//     next();
+// });
+
 module.exports = app;

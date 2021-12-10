@@ -12,9 +12,11 @@ import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import SplashPage from "./components/SplashPage";
 import Home from "./components/Home";
+import AlbumList from "./components/Albums/AlbumList";
 import AddPhotoModal from "./components/PhotoModal/AddPhotoModal"; // since there's no "index". 
 // import AddOnePhoto from "./components/Photos/AddOnePhoto";
 // import ShowOnePhoto from "./components/Photos/ShowOnePhoto";
+import LoginFormModal from "./components/LoginFormModal";
 import ShowPhotoModal from "./components/PhotoModal/ShowPhotoModal";
 import EditPhotoModal from "./components/PhotoModal/EditPhotoModal"
 
@@ -41,6 +43,10 @@ function App() {
                         <SignupFormPage />
                     </Route>
 
+                    <Route path="/login">
+                        <LoginFormModal />
+                    </Route>
+
                     <Route path="/home">
                         <Home />
                     </Route>
@@ -55,6 +61,10 @@ function App() {
 
                     <Route path="/photos/:photoID/edit">
                         <EditPhotoModal />
+                    </Route>
+
+                    <Route path="/albums">
+                        <AlbumList />
                     </Route>
                 </Switch>
             )}
