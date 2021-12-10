@@ -14,7 +14,7 @@ function AddPhotoModal() {
     const [description, setDescription] = useState("");
     // const [content, setContent] = useState("");
     const [imageUrl, setImageUrl] = useState("");
-    const [albumID, setAlbumID] = useState("");
+    const [album, setAlbum] = useState("");
     const [file, setFile] = useState(null);
 
     const [validationErrors, setValidationErrors] = useState([]);
@@ -24,9 +24,10 @@ function AddPhotoModal() {
     const validImageUrl = (e) => setImageUrl(e.target.value);
     const validTitle = (e) => setTitle(e.target.value);
     const validDescription = (e) => setDescription(e.target.value);
-    const validAlbumID = (e) => setAlbumID(e.target.value);
+    const validAlbumID = (e) => setAlbum(e.target.value);
 
     const userID = useSelector((state) => state.session?.user?.id);
+    const albumID = useSelector((state) => Object.values(state.albums));
 
     useEffect(() => {
         const errors = [];
@@ -85,7 +86,6 @@ function AddPhotoModal() {
         <div className="add_pin_modal">
             <div className="add_pin_container">
                 <div className="side" id="left_side">
-
                     <div className="left-section1">
                         <div>
                             <h3> See Preview before uploading: </h3>
@@ -110,19 +110,14 @@ function AddPhotoModal() {
                                 name="album_name"
                                 id="album_name"
                             >
-                                <option value="">Select</option>
-                                <option value="small">small</option>
-                                <option value="medium">medium</option>
-                                <option value="large">large</option>
+                                <option value="">Pick an Album</option>
+                                {albumID.map((album, index) => (
+                                    <option key={index} value={album}>
+                                        {album.title}
+                                    </option>
+                                ))}
                             </select>
-                            <div
-                                // onClick={() =>
-                                //     save_pin(pinDetails, props.add_pin)
-                                // }
-                                className="save_pin"
-                            >
-                                Save
-                            </div>
+                            {/* <div className="save_pin">Save</div> */}
                         </div>
                     </div>
                     {/* FORM  */}
@@ -183,7 +178,6 @@ function AddPhotoModal() {
                                 <button id="add-photo-btn" type="submit">
                                     Post Your Photo
                                 </button>
-
                             </form>
                         </div>
                     </div>
@@ -196,7 +190,6 @@ function AddPhotoModal() {
 export default AddPhotoModal;
 
 //! ADD ---- uploads ONE photo
-
 
 // "right-side" ---- Section 1 ----- this will be to choose album
 
