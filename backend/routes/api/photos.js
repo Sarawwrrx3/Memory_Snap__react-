@@ -63,6 +63,7 @@ router.post(
         // const body = req.body
         // console.log(body, '<--------body')
         const photo = await Photo.create(req.body);
+        console.log("treelover", photo);
         const validateAddPhoto = validationResult(req);
 
         if (validateAddPhoto.isEmpty()) {

@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { addPhoto } from "../../store/photos";
+// import { Modal } from "../../context/Modal";
+import  uploadGIF  from "./upload-animation.gif";
 
 import "./photoModal.css";
 
@@ -18,6 +20,7 @@ function AddPhotoModal() {
     const [file, setFile] = useState(null);
 
     const [validationErrors, setValidationErrors] = useState([]);
+    const [showModal, setShowModal] = useState(false);
     // const [validationErrors, setValidationErrors] = useState([]);
 
     // const validContent = (e) => setContent(e.target.value);
@@ -88,11 +91,17 @@ function AddPhotoModal() {
                 <div className="side" id="left_side">
                     <div className="left-section1">
                         <div>
-                            <h3> See Preview before uploading: </h3>
+                            {/* <h3> See Preview before uploading: </h3> */}
+                            <h3> Upload One Photo</h3>
                             <img
+                                src={uploadGIF}
+                                alt="upload-animation"
+                                className="upload-animation"
+                            />
+                            {/* <img
                                 src={file ? URL.createObjectURL(file) : null}
                                 alt={file ? file.name : null}
-                            />
+                            /> */}
                             {/* <input type="file" onChange={fileHandler} /> */}
                         </div>
                     </div>
@@ -112,7 +121,7 @@ function AddPhotoModal() {
                                 value={album.id}
                                 onChange={(e) => setAlbum(e.target.value)}
                             >
-                                <option value="">Pick an Album</option>
+                                <option value={album}>Pick an Album</option>
                                 {albumID.map((album, index) => (
                                     <option key={index} value={album}>
                                         {album.title}

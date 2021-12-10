@@ -3,12 +3,18 @@
 
 /* --------------------------------
 
+
 font-family: 'Comforter', cursive;
+font-family: 'Genos', sans-serif;   (NO)
 font-family: 'Gochi Hand', cursive;
 font-family: 'Indie Flower', cursive;
+font-family: 'Jost', sans-serif;
+font-family: 'M PLUS 1p', sans-serif;  *** 
 font-family: 'Meow Script', cursive;
+font-family: 'Poppins', sans-serif;
 font-family: 'Prompt', sans-serif;
-
+font-family: 'Readex Pro', sans-serif;
+font-family: 'Red Hat Display', sans-serif;
 */ 
 
 * {
@@ -22,10 +28,49 @@ body {
     padding: 0;
     width: 100vw;
     height: 100vh;
+    font-family: 'M PLUS 1p', sans-serif;
 }
 
 body, div { 
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0; 
+}
+
+
+button {
+    border-radius: 20px;
+    border: 1px solid #b12bff;
+    background-color: #b12bff;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+}
+
+button.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
+}
+
+.cancel-button {
+    border: 1px solid #910835;
+    background-color: #910835;
+}
+
+/******************* FORMs *******************/
+
+form {
+    width: 290px;
 }

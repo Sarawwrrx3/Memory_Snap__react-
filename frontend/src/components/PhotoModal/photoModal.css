@@ -1,3 +1,6 @@
+/*********************** AddPhotoModal *************************/ 
+
+
 .add_pin_modal {
     width: 100%;
     height: 100%;
@@ -13,7 +16,7 @@
 .add_pin_container {
     padding: 35px;
     width: 880px;
-    height: 674px;
+    height: 640px;
     border-radius: 16px;
     position: absolute;
     top: 50%;
@@ -22,8 +25,6 @@
     overflow: hidden;
 
     display: flex;
-
-    background-color: white;
 }
 
 .side {
@@ -209,7 +210,9 @@
     background-color: #efefef;
 }
 
-#right_side .section1 .select_size .save_pin {
+/* #right_side .section1 .select_size .save_pin  */
+/* .add-photo-btn
+{
     width: 30%;
     height: 100%;
     border-top-right-radius: 8px;
@@ -222,10 +225,14 @@
     font-size: 16px;
     font-weight: 700;
 
-    color: white;
+    color: white; */
     /* background-color: #E60023; */
-    background-color: mediumslateblue;
+    /* background-color: mediumslateblue;
     cursor: pointer;
+} */
+
+.add-photo-btn {
+    color: #e4e0e9 !important;
 }
 
 .new_image_input {
@@ -240,3 +247,58 @@
 
     background-color: transparent;
 }
+
+.upload-animation {
+    width:100%;
+    /* position: relative;
+    display:flex;
+    justify-content: center; */
+}
+
+/* .left-side {
+    position: absolute;
+    display:flex;
+    justify-content: center;
+} */
+
+/*********************** ShowPhotoModal *************************/ 
+
+.show-photo-modal {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.photo-detail-container {
+    padding: 35px;
+    width: 880px;
+    height: 640px;
+    border-radius: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+
+    display: flex;
+}
+
+
+#image-upload {
+    border-radius: 10px;
+    max-width: 40rem;
+    height: auto;
+    margin: 10px;
+}
+
+.photo-details  h {
+    font-weight: bold;
+}
+
+
