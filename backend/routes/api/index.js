@@ -1,12 +1,12 @@
 const router = require("express").Router();
 const sessionRouter = require("./session.js");
 const usersRouter = require("./users.js");
-// const albumRouter = require("./albums.js");
+const albumRouter = require("./albums.js");
 const photosRouter = require("./photos.js");
 // const express = require('express');
 
 router.use("/session", sessionRouter);
-// router.use("/albums", albumRouter);
+router.use("/albums", albumRouter);
 router.use("/users", usersRouter);
 router.use("/photos", photosRouter);
 // const apiRouter = require('./api');

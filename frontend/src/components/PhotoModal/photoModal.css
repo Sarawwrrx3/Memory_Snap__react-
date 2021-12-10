@@ -184,19 +184,19 @@
     cursor: pointer;
 }
 
-#right_side .section1 {
+.right-section1 {
     display: flex;
     justify-content: flex-end;
 }
 
-#right_side .section1 .select_size {
+.select_album {
     width: 236px;
     height: 40px;
 
     display: flex;
 }
 
-#right_side .section1 .select_size select {
+#album_name {
     width: 70%;
     height: 100%;
     border: none;
@@ -228,7 +228,7 @@
     cursor: pointer;
 }
 
-#right_side .section2 .new_pin_input {
+.new_image_input {
     margin-bottom: 20px;
     width: 100%;
     height: 50px;

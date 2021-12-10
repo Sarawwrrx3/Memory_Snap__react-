@@ -24,7 +24,7 @@ function AddPhotoModal() {
     const validImageUrl = (e) => setImageUrl(e.target.value);
     const validTitle = (e) => setTitle(e.target.value);
     const validDescription = (e) => setDescription(e.target.value);
-    const validAlbumID = (e) => setAlbum(e.target.value);
+    const validAlbum = (e) => setAlbum(e.target.value);
 
     const userID = useSelector((state) => state.session?.user?.id);
     const albumID = useSelector((state) => Object.values(state.albums));
@@ -48,7 +48,7 @@ function AddPhotoModal() {
             title,
             description,
             imageUrl,
-            albumID,
+            albumID: album.id,
         };
         const newPhoto = await dispatch(addPhoto(NewSinglePhotoData));
         // console.log("This is a AddOnePhoto component", newPhoto);
@@ -109,6 +109,8 @@ function AddPhotoModal() {
                                 defaultValue="Select"
                                 name="album_name"
                                 id="album_name"
+                                value={album.id}
+                                onChange={(e) => setAlbum(e.target.value)}
                             >
                                 <option value="">Pick an Album</option>
                                 {albumID.map((album, index) => (
@@ -117,7 +119,14 @@ function AddPhotoModal() {
                                     </option>
                                 ))}
                             </select>
-                            {/* <div className="save_pin">Save</div> */}
+                            {/* <div
+                                onClick={() =>
+                                    validAlbum()
+                                }
+                                className="save_album"
+                            >
+                                Save
+                            </div> */}
                         </div>
                     </div>
                     {/* FORM  */}
@@ -132,7 +141,6 @@ function AddPhotoModal() {
                                         </ul>
                                     </div>
                                     <label>
-                                        Title
                                         <input
                                             placeholder="Add your title"
                                             className="new_image_input"
@@ -147,7 +155,6 @@ function AddPhotoModal() {
 
                                 <div id="add-image-description">
                                     <label>
-                                        Description
                                         <input
                                             placeholder="Tell everyone what your photo is about"
                                             className="new_image_input"
@@ -162,7 +169,6 @@ function AddPhotoModal() {
 
                                 <div id="add-image-url">
                                     <label>
-                                        ImageUrl
                                         <input
                                             placeholder="Add Image URL"
                                             className="new_image_input"
