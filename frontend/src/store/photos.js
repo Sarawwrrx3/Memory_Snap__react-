@@ -161,8 +161,10 @@ export const getOnePhoto = (photoID) => async (dispatch) => {
 
 // delete / remove
 export const removePhoto = (photoID) => async (dispatch) => {
-    const response = await csrfFetch(`/api/photos/${photoID.id}`, {
+    console.log("photoReducer (delete)", photoID);
+    const response = await csrfFetch(`/api/photos/${photoID}`, {
         method: "DELETE",
+        body: JSON.stringify({}),
     });
     if (response.ok) {
         const photo = await response.json();
@@ -190,29 +192,11 @@ const photosReducer = (state = initialState, action) => {
             return newState;
 
         case EDIT_PHOTO:
-            console.log("AAAAAACTION", action);
+            // console.log("AAAAAACTION", action);
             newState = { ...state };
-            console.log("newwww stateee", newState);
+            // console.log("newwww stateee", newState);
             newState[action.photo.photo.id] = action.photo.photo;
             return newState;
-
-        // if (!state[action.photo.id]) {
-        //     newState = { ...state, [action.photo.id]: action.photo };
-        //     return newState;
-        // } else {
-        //     return {
-        //         ...state,
-        //         [action.photo.id]: {
-        //             ...state[action.photo.id],
-        //             ...action.photo,
-        //         },
-        //     };
-        // }
-        // {
-        //     newState = { ...state };
-        //     newState[action.data.id] = action.data;
-        //     return newState;
-        // }
 
         case GET_ALL_PHOTOS: {
             // let photoObj = Object.assign({}, action.photos)
