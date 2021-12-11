@@ -8,13 +8,14 @@ import "./album.css";
 
 function AlbumList() {
     const dispatch = useDispatch();
+    const user = useSelector((state) => state.session.user);
 
     const albumsArr = useSelector((state) => Object.values(state.albums));
     // console.log("sdfasdfa", albumsArr);
 
     useEffect(() => {
-        dispatch(getAlbums());
-    }, [dispatch]);
+        dispatch(getAlbums(user));
+    }, [dispatch, user]);
 
     return (
         <div className="album-list-container">

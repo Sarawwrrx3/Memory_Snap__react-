@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { editPhoto } from "../../store/photos";
 
 import "./photoModal.css";
-//heldsvfdf
+
 function EditPhotoModal() {
     const dispatch = useDispatch();
     const history = useHistory();

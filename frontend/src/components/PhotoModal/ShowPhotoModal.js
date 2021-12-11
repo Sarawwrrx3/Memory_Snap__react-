@@ -32,7 +32,7 @@ function ShowPhotoModal() {
     // after deleting the photo, goes to home page
     const handleDelete = async (e, id) => {
         e.preventDefault();
-
+        console.log("ShowPhotoModal PhotoID:", id);
         const deleteThePhoto = await dispatch(removePhoto(id));
 
         if (deleteThePhoto) {
