@@ -86,8 +86,8 @@ export const getAlbums = (user) => async (dispatch) => {
 
     if (res.ok) {
         const albums = await res.json();
-        console.log(albums, "<------getAlbums albums");
-        dispatch(loadAlbums(albums));
+        console.log(albums.albums, "<------getAlbums albums");
+        dispatch(loadAlbums(albums.albums));
         return albums;
     }
 };
@@ -151,15 +151,18 @@ const albumReducer = (state = initialState, action) => {
             }
 
         case LOAD_ALBUMS: {
-            newState = { ...state };
-            console.log("watermelon", newState);
+            const loadState = action.album;
+            console.log("BEFORE newStatee", loadState);
             console.log("fsdfaf--- ", action);
-            action.album.albums.forEach((album) => {
-                console.log("Grreg", album);
-                // "albums" is from ------  const albums = await res.json();
-                newState[album.id] = action.album;
-            });
-            return newState;
+            
+            
+            // action.album.forEach((album) => {
+            //     console.log("Grreg", album);
+            //     // "albums" is from ------  const albums = await res.json();
+            //     loadState[album.id] = action.album;
+            // });
+            console.log("AFTER newStatee", loadState);
+            return loadState;
         }
 
         case LOAD_ONE_ALBUM:

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { addPhoto } from "../../store/photos";
 // import { Modal } from "../../context/Modal";
-import  uploadGIF  from "./upload-animation.gif";
+import uploadGIF from "./upload-animation.gif";
 import { getAlbums } from "../../store/album";
 
 import "./photoModal.css";
@@ -17,7 +17,7 @@ function AddPhotoModal() {
     const [description, setDescription] = useState("");
     // const [content, setContent] = useState("");
     const [imageUrl, setImageUrl] = useState("");
-    const [album, setAlbum] = useState("");
+    const [albumID, setAlbumID] = useState("");
     const [file, setFile] = useState(null);
 
     const [validationErrors, setValidationErrors] = useState([]);
@@ -28,7 +28,7 @@ function AddPhotoModal() {
     const validImageUrl = (e) => setImageUrl(e.target.value);
     const validTitle = (e) => setTitle(e.target.value);
     const validDescription = (e) => setDescription(e.target.value);
-    const validAlbum = (e) => setAlbum(e.target.value);
+    const validAlbum = (e) => setAlbumID(e.target.value);
 
     const user = useSelector((state) => state.session.user);
     const albums = useSelector((state) => Object.values(state.albums));
@@ -44,18 +44,18 @@ function AddPhotoModal() {
         if (!imageUrl) errors.push("Upload an Image");
         setValidationErrors(errors);
 
-        dispatch(getAlbums(user))
+        dispatch(getAlbums(user));
     }, [title, description, imageUrl]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        console.log("eventt", e);
         const NewSinglePhotoData = {
             userID: user.id,
             title,
             description,
             imageUrl,
-            albumID: album.id,
+            albumID: albumID,
         };
         const newPhoto = await dispatch(addPhoto(NewSinglePhotoData));
         // console.log("This is a AddOnePhoto component", newPhoto);
@@ -122,15 +122,22 @@ function AddPhotoModal() {
                                 defaultValue="Select"
                                 name="album_name"
                                 id="album_name"
-                             
-                                onChange={(e) => setAlbum(e.target.value)}
+                                value={albumID}
+                                onChange={(e) => {
+                                    console.log(
+                                        "event targettttt",
+                                        e.target.value
+                                    ); 
+                                    setAlbumID(e.target.value);
+                                }}
                             >
-                                <option value={album}>Pick an Album</option>
-                                {albums.map((album, index) => (
-                                    <option key={index} value={album}>
-                                        {album.title}
-                                    </option>
-                                ))}
+                                <option value={albumID}>Pick an Album</option>
+                                {Array.isArray(albums) &&
+                                    albums.map((album, index) => (
+                                        <option key={index} value={album.id}>
+                                            {album.title}
+                                        </option>
+                                    ))}
                             </select>
                             {/* <div
                                 onClick={() =>
