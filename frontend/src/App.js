@@ -24,6 +24,7 @@ import EditPhotoModal from "./components/PhotoModal/EditPhotoModal"
 function App() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
+    // const [selectedImg, setSelectedImg] = useState(null); / trying to make it pop-up
     
     useEffect(() => {
         dispatch(getPhotos());

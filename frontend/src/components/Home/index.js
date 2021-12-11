@@ -19,7 +19,10 @@ function Home() {
         <div className="home-photo-container">
             <div className="photo-list-container">
                 {photosArr.map((image, index) => (
-                    <div key={index}>
+                    <div
+                        key={index}
+                        // onClick={(e) => setSelectedImg(image.imageUrl)}
+                    >
                         <img
                             className="each-img"
                             src={image.imageUrl}
