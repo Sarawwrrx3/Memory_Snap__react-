@@ -34,15 +34,14 @@ function Home() {
                         key={index}
                         // onClick={(e) => setSelectedImg(image.imageUrl)}
                     >
-
+                        <Link className="edit-home" to={`/photos/${image.id}`}>
                             <img
                                 className="each-img"
                                 src={image.imageUrl}
                                 alt="cat"
                             />
-                      
+                        </Link>
                     </div>
-                    
                 ))}
             </div>
         </div>
@@ -56,18 +55,3 @@ export default Home;
 // getAllThePhotos
 // all photos are public
 
-
-// {
-//     /* <div
-//                         key={index}
-//                         // onClick={(e) => setSelectedImg(image.imageUrl)}
-//                     >
-//                         <Link className="edit-home" to={`/photos/${photoID}`}>
-//                             <img
-//                                 className="each-img"
-//                                 src={image.imageUrl}
-//                                 alt="cat"
-//                             />
-//                         </Link>
-//                     </div> */
-// }

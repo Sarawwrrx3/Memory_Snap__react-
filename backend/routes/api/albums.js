@@ -63,7 +63,7 @@ router.post(
     handleValidationErrors,
     asyncHandler(async function (req, res) {
         const album = await Album.create(req.body);
-        // console.log("gfdsa", album );
+        console.log("gfdsa", album );
         // const validateAddAlbum = validationResult(req);
 
         // if (validateAddAlbum.isEmpty()) {

@@ -59,18 +59,8 @@ function AddOneAlbum() {
                         />
                     </label>
                 </div>
-                {/* <div id="add-image-url">
-                    <label>
-                        userID
-                        <input
-                            id="input-field"
-                            type="text"
-                            value={userID}
-                            onChange={validUserID}
-                            required
-                        />
-                    </label>
-                </div> */}
+                
+
 
                 <button id="add-album-btn" type="submit">
                     Create Album
