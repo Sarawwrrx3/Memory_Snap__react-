@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import AddAlbumPhotoButton from "../Buttons/AddAlbumPhotoButton";
 // import { Link } from "react-router-dom";
 import "./home.css";
 
@@ -17,8 +18,10 @@ function Home() {
 
     return (
         <div className="home-photo-container">
+            <AddAlbumPhotoButton />
             <div className="photo-list-container">
                 {photosArr.map((image, index) => (
+                    
                     <div
                         key={index}
                         // onClick={(e) => setSelectedImg(image.imageUrl)}
