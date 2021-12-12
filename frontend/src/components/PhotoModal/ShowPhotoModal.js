@@ -21,7 +21,7 @@ function ShowPhotoModal() {
     const photoSelect = useSelector((state) => state.photos[photoID]);
     // const post = useSelector((state) => state.photos[photoID] )
     // "photos" is from store/index.js ---- "photos: photosReducer,"
-    console.log("photo from userSelector", photoSelect);
+    // console.log("photo from userSelector", photoSelect);
     // console.log("testing props", onePhoto);
     // const [open, setOpen] = useState(false);
 

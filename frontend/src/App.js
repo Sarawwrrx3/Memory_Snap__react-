@@ -20,6 +20,7 @@ import LoginFormModal from "./components/LoginFormModal";
 import ShowPhotoModal from "./components/PhotoModal/ShowPhotoModal";
 import EditPhotoModal from "./components/PhotoModal/EditPhotoModal";
 import AddOneAlbum from "./components/Albums/AddOneAlbum";
+import SeeOneAlbum from "./components/Albums/SeeOneAlbum";
 
 function App() {
     const dispatch = useDispatch();
@@ -73,7 +74,11 @@ function App() {
                         <AddOneAlbum />
                     </Route>
                     {/* for space purposes */}
-              
+                    <Route exact path="/albums/:albumID">
+                        <SeeOneAlbum />
+                    </Route>
+                    {/* for space purposes */}
+                    
                 </Switch>
             )}
         </>

@@ -175,11 +175,13 @@ const albumReducer = (state = initialState, action) => {
 
         case REMOVE_ALBUM: {
             newState = { ...state };
+            console.log("wha is action.albumID", action.albumID);
             delete newState[action.albumID];
             return newState;
         }
         default:
-            return initialState;
+            return state;
+            // return initialState;
     }
 };
 

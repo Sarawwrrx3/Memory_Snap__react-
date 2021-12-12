@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import AddAlbumPhotoButton from "../Buttons/AddAlbumPhotoButton";
+import AddAlbumButton from "../Buttons/AddAlbumButton";
+import AddPhotoButton from "../Buttons/AddPhotoButton";
 // import ShowPhotoModal from "../PhotoModal/ShowPhotoModal";
 import { Link, useParams } from "react-router-dom";
 import "./home.css";
@@ -27,14 +28,15 @@ function Home() {
 
     return (
         <div className="home-photo-container">
-            <AddAlbumPhotoButton />
+            <AddAlbumButton />
+            <AddPhotoButton />
             <div className="photo-list-container">
                 {photosArr.map((image, index) => (
                     <div
                         key={index}
                         // onClick={(e) => setSelectedImg(image.imageUrl)}
                     >
-                        <Link className="edit-home" to={`/photos/${image.id}`}>
+                        <Link className="link-per-img" to={`/photos/${image.id}`} >
                             <img
                                 className="each-img"
                                 src={image.imageUrl}
