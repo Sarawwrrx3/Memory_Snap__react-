@@ -39,7 +39,7 @@ function SeeOneAlbum() {
                             alt="album-icon"
                             className="album-image"
                         />
-                        <p className="album-content">{albumSelect.title}</p>
+                        <p className="album-content">{albumSelect?.title}</p>
                     </div>
                 </div>
 

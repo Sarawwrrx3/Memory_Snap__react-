@@ -117,7 +117,7 @@ router.delete(
         // console.log("asdfwerwer -----", photoID);
         // const photo = await Photo.findByPk(photoID);
         // const deletePic = await Photo.findByPk(req.params.id);
-        console.log("photo IDDD", photoID, req.params);
+        // console.log("photo IDDD", photoID, req.params);
         const deletePic = await Photo.findByPk(photoID);
         // console.log("gregsrfg", deletePic);
         // if (deletePic) {

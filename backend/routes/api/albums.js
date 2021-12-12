@@ -9,7 +9,7 @@ const {
     requireAuth,
 } = require("../../utils/auth");
 const csrfProtection = csrf({ cookie: true });
-const { Photo, Album } = require("../../db/models");
+const {  Album } = require("../../db/models");
 // const { request } = require("../../app");
 
 const router = express.Router();
@@ -50,7 +50,7 @@ router.get(
     "/:id(\\d+)",
     asyncHandler(async (req, res, next) => {
         const album = await Album.findByPk(req.params.id, {
-            include: [Image],
+            include: [Photo],
         });
         return res.json(album);
         // console.log("hello",album)
@@ -96,11 +96,13 @@ router.patch(
 
 router.delete(
     "/:albumID",
-    requireAuth,
+    // requireAuth,
     asyncHandler(async (req, res) => {
         // const albumID = req.params.id;
         const { albumID } = req.params;
         // const userID = req.user.id;
+                console.log("photo IDDD", albumID, req.params);
+
 
         const album = await Album.findByPk(albumID);
 
