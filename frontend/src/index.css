@@ -39,11 +39,11 @@ body, div {
 
 /********************** BUTTON 1 ***********************/
 
-/* button {
+button {
     border-radius: 20px;
     border: 1px solid #b12bff;
-    background-color: #543c63;
-    color: #FFFFFF;
+    background-color: #b12bff;
+    color: #FFFFFF !important;
     font-size: 12px;
     font-weight: bold;
     padding: 12px 45px;
@@ -68,7 +68,7 @@ button.ghost {
 .cancel-button {
     border: 1px solid #910835;
     background-color: #910835;
-} */
+}
 
 /********************** BUTTON 2 ***********************/
 
@@ -76,7 +76,7 @@ button.ghost {
 <button class="button-24" role="button">Button 24</button> */
 
 /* CSS */
-.button {
+/* .button {
   background: #FF4742;
   border: 1px solid #FF4742;
   border-radius: 6px;
@@ -110,7 +110,7 @@ button.ghost {
 
 .button:active {
   opacity: .5;
-}
+} */
 
 /******************* FORMs *******************/
 

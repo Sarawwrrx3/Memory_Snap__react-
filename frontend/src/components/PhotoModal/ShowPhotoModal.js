@@ -3,8 +3,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { useParams, useHistory, Link } from "react-router-dom";
-import { removePhoto, getOnePhoto, editPhoto } from "../../store/photos";
+import { useParams, useHistory } from "react-router-dom";
+import { removePhoto, getOnePhoto } from "../../store/photos";
 
 import "./photoModal.css";
 

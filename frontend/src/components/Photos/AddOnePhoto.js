@@ -13,7 +13,7 @@ function AddOnePhoto(props) {
     const dispatch = useDispatch();
     const history = useHistory();
     const { photoID } = useParams(); // EX: http://localhost:3000/photos/18 ----- 18 ("photoID") from ---- APP.js ---- path="/photos/:photoID"
-
+console.log("AddONe photoID is:", photoID );
     const photoSelect = useSelector((state) => state.photos[photoID]);
     // "photos" is from store/index.js ---- "photos: photo
 
