@@ -60,7 +60,7 @@ router.post(
     })
 );
 
-// get the all the user's album 
+// get the all the user's album ----- to assign a photo to an album
 router.get(
     "/:id(\\d+)/albums",
     asyncHandler(async (req, res) => {

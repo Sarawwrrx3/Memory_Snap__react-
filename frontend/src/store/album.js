@@ -48,7 +48,7 @@ export const addNewAlbum = (album) => async (dispatch) => {
     // };
     // different from addPhoto
 
-    const res = await csrfFetch(`/api/albums`, {
+    const res = await csrfFetch(`/api/albums/add`, {
         method: "POST",
         body: JSON.stringify(album),
     });
@@ -82,6 +82,8 @@ export const editAlbum = (album) => async (dispatch) => {
 // get more than one / get many 
 export const getAlbums = (user) => async (dispatch) => {
     const res = await fetch(`/api/users/${user.id}/albums`);
+        // const res = await fetch(`/api/albums`);
+
     // console.log(res, "<----res");
 
     if (res.ok) {

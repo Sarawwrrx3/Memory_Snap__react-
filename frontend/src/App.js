@@ -13,19 +13,19 @@ import Navigation from "./components/Navigation";
 import SplashPage from "./components/SplashPage";
 import Home from "./components/Home";
 import AlbumList from "./components/Albums/AlbumList";
-import AddPhotoModal from "./components/PhotoModal/AddPhotoModal"; // since there's no "index". 
+import AddPhotoModal from "./components/PhotoModal/AddPhotoModal"; // since there's no "index".
 // import AddOnePhoto from "./components/Photos/AddOnePhoto";
 // import ShowOnePhoto from "./components/Photos/ShowOnePhoto";
 import LoginFormModal from "./components/LoginFormModal";
 import ShowPhotoModal from "./components/PhotoModal/ShowPhotoModal";
-import EditPhotoModal from "./components/PhotoModal/EditPhotoModal"
-
+import EditPhotoModal from "./components/PhotoModal/EditPhotoModal";
+import AddOneAlbum from "./components/Albums/AddOneAlbum";
 
 function App() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
     // const [selectedImg, setSelectedImg] = useState(null); / trying to make it pop-up
-    
+
     useEffect(() => {
         dispatch(getPhotos());
         dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -36,37 +36,44 @@ function App() {
             <Navigation isLoaded={isLoaded} />
             {isLoaded && (
                 <Switch>
+                    {/* for space purposes */}
                     <Route exact path="/">
                         <SplashPage />
                     </Route>
-
+                    {/* for space purposes */}
                     <Route path="/signup">
                         <SignupFormPage />
                     </Route>
-
+                    {/* for space purposes */}
                     <Route path="/login">
                         <LoginFormModal />
                     </Route>
-
+                    {/* for space purposes */}
                     <Route path="/home">
                         <Home />
                     </Route>
-
+                    {/* for space purposes */}
                     <Route path="/photos/add">
                         <AddPhotoModal />
                     </Route>
-
+                    {/* for space purposes */}
                     <Route exact path="/photos/:photoID">
                         <ShowPhotoModal />
                     </Route>
-
+                    {/* for space purposes */}
                     <Route path="/photos/:photoID/edit">
                         <EditPhotoModal />
                     </Route>
-
-                    <Route path="/albums">
+                    {/* for space purposes */}
+                    <Route exact path="/albums">
                         <AlbumList />
                     </Route>
+                    {/* for space purposes */}
+                    <Route exact path="/albums/add">
+                        <AddOneAlbum />
+                    </Route>
+                    {/* for space purposes */}
+              
                 </Switch>
             )}
         </>
