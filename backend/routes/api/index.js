@@ -3,12 +3,14 @@ const sessionRouter = require("./session.js");
 const usersRouter = require("./users.js");
 const albumRouter = require("./albums.js");
 const photosRouter = require("./photos.js");
+const commentsRouter = require("./comments.js");
 // const express = require('express');
 
 router.use("/session", sessionRouter);
 router.use("/albums", albumRouter);
 router.use("/users", usersRouter);
 router.use("/photos", photosRouter);
+router.use("/comments", commentsRouter);
 // const apiRouter = require('./api');
 
 // All the URLs of the routes in the api router will be prefixed with /api.
