@@ -48,7 +48,7 @@ export const addNewAlbum = (album) => async (dispatch) => {
     // };
     // different from addPhoto
 
-    const res = await csrfFetch(`/api/albums/add`, {
+    const res = await csrfFetch(`/api/albums`, {
         method: "POST",
         body: JSON.stringify(album),
     });
@@ -128,6 +128,7 @@ const albumReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case CREATE_ALBUM:
+            console.log("AAAAAACTION", action);
             if (!state[action.newAlbum.id]) {
                 newState = { ...state, [action.newAlbum.id]: action.newAlbum };
             }

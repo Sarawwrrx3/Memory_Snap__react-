@@ -14,12 +14,15 @@ function EditPhotoModal() {
     const [imageUrl, setImageUrl] = useState("");
     const [description, setDescription] = useState("");
     const [validationErrors, setValidationErrors] = useState([]);
+    console.log(
+        "validationError. to get rid of yellow warnings",
+        validationErrors
+    );
+    // const validTitle = (e) => setTitle(e.target.value);
+    // const validImageUrl = (e) => setImageUrl(e.target.value);
+    // const validDescription = (e) => setDescription(e.target.value);
 
-    const validTitle = (e) => setTitle(e.target.value);
-    const validImageUrl = (e) => setImageUrl(e.target.value);
-    const validDescription = (e) => setDescription(e.target.value);
-
-    const userId = useSelector((state) => state.session?.user?.id);
+    // const userId = useSelector((state) => state.session?.user?.id);
     const photoSelect = useSelector((store) => store.photos[photoID]);
     // console.log("gfsdfgdf", photoSelect);
 

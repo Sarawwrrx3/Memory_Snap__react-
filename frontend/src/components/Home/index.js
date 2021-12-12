@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import AddAlbumPhotoButton from "../Buttons/AddAlbumPhotoButton";
-import ShowPhotoModal from "../PhotoModal/ShowPhotoModal";
+// import ShowPhotoModal from "../PhotoModal/ShowPhotoModal";
 import { Link, useParams } from "react-router-dom";
 import "./home.css";
 

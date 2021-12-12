@@ -1,0 +1,46 @@
+.album-list-container {
+    text-align: justify;
+
+}
+
+.album-list-container > div {
+    text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+    width:100%;
+}
+
+
+.album-image {
+    width: 150px;
+    padding: 15px;
+}
+
+.main-album-container{
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: space-evenly;
+    padding: 30px;
+    /* align-items: center; */
+     position: relative;
+    padding-top: 150px;
+
+
+}
+
+.link-profile {
+    margin: 50px;
+    position: relative;
+}
+
+.add-album-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+#add-album-btn {
+    margin-left: 50px;
+}
