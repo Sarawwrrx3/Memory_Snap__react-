@@ -28,6 +28,8 @@ export const login = (user) => async (dispatch) => {
     }),
   });
   const data = await response.json();
+  // const newObject = {};
+  // newObject.user = data.userAndAlbum
   dispatch(setUser(data.user));
   return response;
 };
@@ -50,11 +52,30 @@ const sessionReducer = (state = initialState, action) => {
   }
 };
 
+// export const demoLogin = () => async (dispatch) => {
+
+//     const response = await csrfFetch("/api/session", {
+//         method: "POST",
+//         body: JSON.stringify({
+//             credential: "Demo-lition",
+//             password: "password",
+//             myAlbum: 1
+//         }),
+//     });
+//     const data = await response.json();
+//     const newObject = {};
+//     newObject.user = data.userAndAlbum
+//     dispatch(setUser(newObject.user))
+//     return response;
+// }
+
 
 // Restore the Session User ----- GET /api/session
 export const restoreUser = () => async dispatch => {
   const response = await csrfFetch('/api/session');
   const data = await response.json();
+  // const newObject = {};
+  // newObject.user = data.userAndAlbum
   dispatch(setUser(data.user));
   return response;
 };
@@ -71,6 +92,8 @@ export const signup = (user) => async (dispatch) => {
     }),
   });
   const data = await response.json();
+  // const newObject = {}
+  // newObject.user = data.userAndAlbum
   dispatch(setUser(data.user));
   return response;
 };
@@ -84,6 +107,9 @@ export const logout = () => async (dispatch) => {
   dispatch(removeUser());
   return response;
 };
+
+
+
 
 
 

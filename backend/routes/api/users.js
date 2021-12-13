@@ -51,11 +51,13 @@ router.post(
             res.json({});
             return;
         }
+        // const userAndAlbum = await User.findByPk(user.id)
         await setTokenCookie(res, user);
 
         return res.json({
             // user: user.toSafeObject(),
             user,
+            // userAndAlbum
         });
     })
 );

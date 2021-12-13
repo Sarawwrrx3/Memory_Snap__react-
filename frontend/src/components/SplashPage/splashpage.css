@@ -85,7 +85,7 @@ section::after { clear: both; }
 /* ========================================================================== ^/
 /^   Header Logo section
 /^ ========================================================================== */
-
+/* 
 .header-logo {
 	height: calc(100% - 420px);
 	min-height: 80px;
@@ -128,7 +128,7 @@ section::after { clear: both; }
 	.header-logo .logo-container p {
 		font-size: 30px;
 	}
-}
+} */
 
 /* ========================================================================== ^/
 /^   Login Form
@@ -306,10 +306,13 @@ section::after { clear: both; }
 /* Main Splash */
 .page-wrapper {
    	background-image: url("./images/photo-album-pictures-photography2.jpeg");
-    background-repeat: none;
+    background-repeat: none !important;
     background-size: cover;
+	align-items: center;
+	text-align: center;
+	background-color: transparent;
 	/* darkens */
-    filter: brightness(50%); 
+    /* filter: brightness(50%);  */
 	
 }
 .page-wrapper p {
@@ -354,4 +357,21 @@ section::after { clear: both; }
 
 .social-icons {
     width: 50px; 
+}
+
+/***************** DEMO ***************/
+.div-demo-container {
+	/* display: flex; */
+    align-items: center;
+	text-align: center;
+	background-color: transparent;
+	margin-bottom: 250px;
+}
+.demo-userrr{
+	position: inline;
+}
+
+.content-wrapper {
+	color: lightgrey;
+	background-color: transparent;
 }

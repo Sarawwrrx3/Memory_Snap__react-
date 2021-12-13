@@ -51,8 +51,10 @@ router.post(
 
     await setTokenCookie(res, user);
 
+    //  const userAndAlbum = await User.findByPk(user.id)
     return res.json({
       user,
+      // userAndAlbum
     });
   }),
 );
@@ -81,8 +83,10 @@ router.get(
   (req, res) => {
     const { user } = req;
     if (user) {
+      // const userAndAlbum = await User.findByPk(user.id)
       return res.json({
-        user: user.toSafeObject()
+        user: user.toSafeObject(),
+        // userAndAlbum
       });
     } else return res.json({});
   }

@@ -22,6 +22,7 @@ import EditPhotoModal from "./components/PhotoModal/EditPhotoModal";
 import AddOneAlbum from "./components/Albums/AddOneAlbum";
 import SeeOneAlbum from "./components/Albums/SeeOneAlbum";
 import EditTheAlbum from "./components/Albums/EditTheAlbum";
+import DemoUser from "./components/DemoUser"
 
 function App() {
     const dispatch = useDispatch();
@@ -83,7 +84,11 @@ function App() {
                         <EditTheAlbum />
                     </Route>
                     {/* for space purposes */}
-                    
+                    <Route  path="/demo">
+                        <DemoUser />
+                    </Route>
+                    {/* for space purposes */}
+                    DemoUser
                 </Switch>
             )}
         </>

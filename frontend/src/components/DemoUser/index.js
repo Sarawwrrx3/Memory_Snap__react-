@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux';
 
 const DemoUser = () => {
     const dispatch = useDispatch();
-    const [credential] = useState('Demo-user');
+    const [credential] = useState("Demo-lition");
     const [password] = useState('password');
 
     const handleSubmit = (e) => {

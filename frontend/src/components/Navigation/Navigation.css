@@ -9,6 +9,7 @@
     font-family: "Meow Script", cursive;
     background-color: transparent;
     font-weight: bold;
+    padding-left: 10px;
     text-shadow: 1px 2px 5px rgba(209, 192, 202, 0.1),
         2px 4px 5px rgba(209, 192, 202.05), -2px 4px 5px rgba(209, 192, 202.05);
 }
@@ -17,26 +18,34 @@
     text-decoration: none;
 }
 
+.nav-main-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    
+    background: #D66D75;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E29587, #D66D75);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E29587, #D66D75); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
 .nav-li-home-container {
     position: relative;
     display: flex;
     justify-content: space-between;
-
-    padding: 10px;
-    /* background: #D66D75;  fallback for old browsers */
-    /* background: -webkit-linear-gradient(to right, #E29587, #D66D75);  Chrome 10-25, Safari 5.1-6 */
-    /* background: linear-gradient(to right, #E29587, #D66D75); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width:100%;
+    background-color: transparent;
 }
-.Nav-main-container {
+/* .Nav-main-container {
     background-color: rgb(30, 29, 32);
     flex: 1 1 auto;
-    height: 80px;
+    height: 80px; */
     /* background-color: white; */
-    justify-content: center;
+    /* justify-content: center;
     padding: 12px 4px 4px 16px;
     box-sizing: border-box;
     align-items: center;
-}
+} */
 
 .nav-user-btn {
     display: flex;
@@ -83,7 +92,9 @@ li {
     background-color: transparent;
     font-weight: bold;
 }
-
+/* .profile-nav-button {
+    padding-left: 50px;
+} */
 /************** SEARCH **********/
 
 .header__search {

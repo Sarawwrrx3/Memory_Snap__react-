@@ -19,7 +19,9 @@ function Navigation({ isLoaded }) {
 
     let sessionLinks;
     if (sessionUser) {
-        sessionLinks = <ProfileButton user={sessionUser} />;
+        sessionLinks = (
+            <ProfileButton className="profile-nav-button"  user={sessionUser} />
+        );
     } else {
         sessionLinks = (
             <>
@@ -45,45 +47,16 @@ function Navigation({ isLoaded }) {
 
     return (
         <div className="nav-main-container">
-            {/* <link rel="icon" type="image/png" href="./photo-camera-icon2.png" />*/}
-            <a href="/home">
-                <img
-                    className="nav-camera-icon"
-                    src={photoIcon}
-                    alt="nav-camera-icon"
-                />
-            </a>
+         
+                <li className="nav-li-home-container">
+                    <NavLink className="home-navlink" exact to="/home">
+                        Memory Snap
+                    </NavLink>
+                    {isLoaded && sessionLinks}
+                </li>
+            </div>
 
-            <li className="nav-li-home-container">
-                <NavLink className="home-navlink" exact to="/home">
-                    Memory Snap
-                </NavLink>
-                {isLoaded && sessionLinks}
-            </li>
-
-            {/* <div className="header__button following">
-              <a href="/">Following</a>
-          </div> */}
-
-            {/* <div className="header__search">
-              <div className="header__searchContainer"> */}
-            {/* <ImageSearchIcon /> */}
-            {/* <form>
-                      <input
-                          type="text"
-                          onChange={(e) => setInput(e.target.value)}
-                      />
-                      <button type="submit" onClick={onSearchSubmit}>
-                          Submit
-                      </button>
-                  </form>
-              </div>
-          </div> */}
-
-            <Link className="link-profile" to="/home">
-                <button className="go-to-profile-btn">Profile</button>
-            </Link>
-        </div>
+          
     );
 }
 
