@@ -70,7 +70,6 @@ export const addPhoto = (photo) => async (dispatch) => {
     });
     if (response.ok) {
         const newPhoto = await response.json();
-        // console.log("This is new photo in Thunk", newPhoto);
         dispatch(add(newPhoto));
         return newPhoto;
     }
@@ -80,9 +79,7 @@ export const addPhoto = (photo) => async (dispatch) => {
 // `/api/photos/${photo.id}`
 export const editPhoto = (post, photoID) => async (dispatch) => {
     const { albumID, userID, title, description } = post;
-    // console.log("freedman", post);
-    // console.log("id postttt ", post); // id
-    // console.log("what is payload", payload); // undefined
+
     const response = await csrfFetch(`/api/photos/${photoID}`, {
         method: "PUT",
         headers: {
@@ -90,41 +87,14 @@ export const editPhoto = (post, photoID) => async (dispatch) => {
         },
         body: JSON.stringify(post),
     });
-    // console.log("green dragon", response);
 
     if (response.ok) {
         const photo = await response.json();
-        console.log("photoooooo", photo);
         dispatch(edit(photo));
         return photo;
     }
 };
 
-//  edit / update
-// `/api/photos/${photo.id}`
-// export const editPhoto = (post, photoID) => async (dispatch) => {
-//     const { albumID, userID, title, description } = post;
-//     console.log("freedman", post);
-//     const response = await csrfFetch(`/api/photos/${photoID}`, {
-//         method: "PUT",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//             albumID,
-//             userID,
-//             title,
-//             description,
-//             photoID,
-//         }),
-//     });
-
-//     if (response.ok) {
-//         const photo = await response.json();
-//         dispatch(edit(photo));
-//         return photo;
-//     }
-// };
 
 export const getAllThePhotos = () => async (dispatch) => {
     const response = await fetch(`/api/photos`);
@@ -153,7 +123,6 @@ export const getOnePhoto = (photoID) => async (dispatch) => {
 
     if (response.ok) {
         const photo = await response.json();
-        // console.log(photos, '<------getPhotos photos')
         dispatch(loadOnePhoto(photo));
         return photo;
     }
@@ -161,7 +130,6 @@ export const getOnePhoto = (photoID) => async (dispatch) => {
 
 // delete / remove
 export const removePhoto = (photoID) => async (dispatch) => {
-    console.log("photoReducer (delete)", photoID);
     const response = await csrfFetch(`/api/photos/${photoID}`, {
         method: "DELETE",
         body: JSON.stringify({}),
@@ -169,7 +137,6 @@ export const removePhoto = (photoID) => async (dispatch) => {
     if (response.ok) {
         const photo = await response.json();
         dispatch(remove(photo));
-        // console.log("this is delete route", response);
         // dispatch(remove(photoID));
         return photo;
     }
@@ -192,9 +159,7 @@ const photosReducer = (state = initialState, action) => {
             return newState;
 
         case EDIT_PHOTO:
-            // console.log("AAAAAACTION", action);
             newState = { ...state };
-            // console.log("newwww stateee", newState);
             newState[action.photo.photo.id] = action.photo.photo;
             return newState;
 
@@ -210,7 +175,6 @@ const photosReducer = (state = initialState, action) => {
 
         case LOAD_MORE_PHOTOS: {
             newState = { ...state };
-            // console.log("fsdfaf--- ", action.photos);
             action.photos?.forEach((photo) => {
                 newState[action.photos.id] = action.photos;
             });
@@ -224,7 +188,6 @@ const photosReducer = (state = initialState, action) => {
 
         case REMOVE_PHOTO: {
             newState = { ...state };
-            // console.log("tree lover", action.photo);
             delete newState[+action.photo.photoID]; // from res.json({photoID})
             // photoID ---- key inside action.photo.
             // action.photo is the object we sent in

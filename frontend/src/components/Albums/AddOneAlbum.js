@@ -34,7 +34,6 @@ function AddOneAlbum() {
         const album = { title, userID }; // payload
         // const album = { userIdentity, title };
         const newAlbum = await dispatch(addNewAlbum(album));
-        console.log("new album id is:", newAlbum.id);
         if (newAlbum) {
             // history.push("/home");
             history.push("/albums");

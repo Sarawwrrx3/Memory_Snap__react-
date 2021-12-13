@@ -32,7 +32,6 @@ function AddPhotoModal() {
 
     const user = useSelector((state) => state.session.user);
     const albums = useSelector((state) => Object.values(state.albums));
-    console.log("goatttt", albums);
 
     useEffect(() => {
         const errors = [];
@@ -49,7 +48,6 @@ function AddPhotoModal() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("eventt", e);
         const NewSinglePhotoData = {
             userID: user.id,
             title,
@@ -58,7 +56,6 @@ function AddPhotoModal() {
             albumID: albumID,
         };
         const newPhoto = await dispatch(addPhoto(NewSinglePhotoData));
-        // console.log("This is a AddOnePhoto component", newPhoto);
         if (newPhoto) {
             // history.push("/home");
             history.push(`/photos/${newPhoto.id}`);
@@ -70,24 +67,6 @@ function AddPhotoModal() {
     const fileHandler = (e) => {
         setFile(e.target.files[0]);
     };
-
-    // // EDIT / UPDATE
-    // const handleUpdate = async (e, id) => {
-    //     e.preventDefault();
-    //     console.log("sfsdfsf----", photoID);
-    //     const updateThePhoto = await dispatch(editPhoto(photoID));
-    //     if (updateThePhoto) {
-    //         history.push(`/photos/${photoID}`);
-    //     }
-    // };
-
-    //! after uploading... go to /photos/${photoID.id}
-    // history.push(`/photos/${photoID.id}/edit`);
-
-    // need usestate
-    // const handleClose = () => {
-    //     setOpen(false);
-    // };
 
     return (
         <div className="add_pin_modal">
@@ -124,10 +103,6 @@ function AddPhotoModal() {
                                 id="album_name"
                                 value={albumID}
                                 onChange={(e) => {
-                                    console.log(
-                                        "event targettttt",
-                                        e.target.value
-                                    ); 
                                     setAlbumID(e.target.value);
                                 }}
                             >

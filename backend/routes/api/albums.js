@@ -25,11 +25,10 @@ router.get(
     "/",
     asyncHandler(async (req, res, next) => {
         const allAlbums = await Album.findAll();
-        console.log("what is allAlbums", allAlbums);
+
         if (allAlbums) {
             return res.json(allAlbums);
         } else return res.json("No album exist.");
-        // console.log(albums)
     })
 );
 
@@ -50,14 +49,8 @@ router.get(
     "/:id(\\d+)",
     asyncHandler(async (req, res, next) => {
         const albumID = req.params.id;
-        const album = await Album.findByPk(
-            albumID
-            // , {
-            // include: [Photo],
-            // }
-        );
+        const album = await Album.findByPk(albumID);
         return res.json(album);
-        // console.log("hello",album)
     })
 );
 
@@ -67,7 +60,6 @@ router.post(
     handleValidationErrors,
     asyncHandler(async function (req, res) {
         const album = await Album.create(req.body);
-        // console.log("gfdsa", album);
         // const validateAddAlbum = validationResult(req);
 
         // if (validateAddAlbum.isEmpty()) {
@@ -102,24 +94,16 @@ router.delete(
     "/:albumID",
     // requireAuth,
     asyncHandler(async (req, res) => {
-
         const { albumID } = req.params;
 
         const album = await Album.findByPk(albumID);
-        // console.log("what is albummmmm", album);
+
         if (!album) throw new Error("Cannot find album");
-        // const album = await Album.findOne({
-        //     // where: { id: albumID, userID },
-        //     where: { albumID, userID },
-        // });
 
         await Album.destroy({
             where: { id: albumID },
         });
 
-        // res.sendStatus(200);
-        // // return res.json({});
-        // return albumID;
         return res.status(200).json({ albumID });
     })
 );
@@ -130,12 +114,9 @@ router.delete(
 router.put(
     "/:id(\\d+)",
     asyncHandler(async (req, res) => {
-        const {id, title} = req.body;
-        console.log("what's reqqq.bodyyy", req.body);
+        const { id, title } = req.body;
         const editAlbumID = await Album.findByPk(req.params.id);
-
         await editAlbumID.update({ title });
-
         res.json(editAlbumID);
     })
 );

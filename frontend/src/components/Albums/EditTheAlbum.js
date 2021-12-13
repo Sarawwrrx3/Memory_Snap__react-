@@ -12,14 +12,13 @@ function EditTheAlbum() {
 
         const [title, setTitle] = useState("");
         const [validationErrors, setValidationErrors] = useState([]);
-        console.log(
-            "validationError. to get rid of yellow warnings",
-            validationErrors
-        );
+        // console.log(
+        //     "validationError. to get rid of yellow warnings",
+        //     validationErrors
+        // );
 
         // const userId = useSelector((state) => state.session?.user?.id);
         const albumSelect = useSelector((store) => store.photos[albumID]);
-        // console.log("gfsdfgdf", albumSelect);
 
         useEffect(() => {
             const errors = [];
@@ -40,11 +39,9 @@ function EditTheAlbum() {
                 title,
                 id: albumID,
             };
-            // console.log("what is payloadddd", payload)
-            // console.log("show photo modal albumID", albumID); // albumID 11
+
             const updateTheAlbum = await dispatch(editAlbum(payload, albumID));
             // albumSelect ------ "post" object
-            console.log("update the album,", updateTheAlbum);
             if (updateTheAlbum) {
                 history.push(`/albums/${albumID}`);
                 // history.push(`/photos/${albumID.id}/edit`);

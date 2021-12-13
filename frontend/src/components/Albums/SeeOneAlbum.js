@@ -10,9 +10,7 @@ function SeeOneAlbum() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { albumID } = useParams();
-    // console.log("what is albumID??", albumID);
     const albumSelect = useSelector((state) => state.albums);
-    console.log("what is albumSelect? ", albumSelect);
     
     useEffect(() => {
         dispatch(getOneAlbum(albumID));
@@ -21,9 +19,7 @@ function SeeOneAlbum() {
     // after deleting the album, goes to album page
     const handleDelete = async (e, id) => {
         e.preventDefault();
-        // console.log("seeOneAlbummm albumID:", id);
         const deleteTheAlbum = dispatch(removeAlbum(id));
-        console.log("deleteAlbummmmm", deleteTheAlbum);
         if (deleteTheAlbum) {
             history.push("/albums");
             window.location.reload()

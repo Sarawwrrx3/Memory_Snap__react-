@@ -11,10 +11,8 @@ router.get(
   asyncHandler(async (req, res, next) => {
     const id = req.params.id;
     const homeFiles = await Comment.findAll({
-      where: { songId: id },
+      where: { userID: id },
     });
-
-    console.log(homeFiles);
 
     return res.json({ homeFiles });
   })
@@ -23,7 +21,6 @@ router.get(
 router.post(
   "/",
   asyncHandler(async (req, res, next) => {
-    console.log(req.body);
     const comment = await Comment.create({
         comment: req.body.value,
         userID: req.body.userID,

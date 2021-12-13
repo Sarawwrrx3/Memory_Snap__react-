@@ -58,8 +58,7 @@ export const addNewAlbum = (album) => async (dispatch) => {
 //  edit / update
 export const editAlbum = (post, albumID) => async (dispatch) => {
     const {title, userID,  tree} = post;
-    // console.log("id albumm postttt ", post);
-    // console.log("albumIDDDD", albumID);
+
     const response = await csrfFetch(`/api/albums/${albumID}`, {
         method: "PUT",
         headers: {
@@ -67,7 +66,6 @@ export const editAlbum = (post, albumID) => async (dispatch) => {
         },
         body: JSON.stringify(post),
     });
-    console.log("rawr response:", response)
 
     if (response.ok) {
         const album = await response.json();
@@ -81,22 +79,17 @@ export const getAlbums = (user) => async (dispatch) => {
     const res = await fetch(`/api/users/${user.id}/albums`);
     // const res = await fetch(`/api/albums`);
 
-    // console.log(res, "<----res");
-
     if (res.ok) {
         const albums = await res.json();
-        console.log(albums.albums, "<------getAlbums albums");
         dispatch(loadAlbums(albums.albums));
         return albums;
     }
 };
 
-// console.log("HELLO");
+
 // get ONE album
 export const getOneAlbum = (albumID) => async (dispatch) => {
-    // console.log("tree lover ");
     const res = await fetch(`/api/albums/${albumID}`);
-    // console.log("2");
     if (res.ok) {
         const album = await res.json();
         dispatch(loadOneAlbum(album));
@@ -123,7 +116,6 @@ const albumReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case CREATE_ALBUM:
-            // console.log("AAAAAACTION", action);
             if (!state[action.newAlbum.id]) {
                 newState = { ...state, [action.newAlbum.id]: action.newAlbum };
             }
@@ -136,7 +128,6 @@ const albumReducer = (state = initialState, action) => {
 
         case EDIT_ALBUM:
             newState = { ...state };
-            console.log("newwww stateee", newState);
             newState[action.album.albumID] = action.album;
             return newState;
             // if (!state[action.album.id]) {
@@ -154,23 +145,16 @@ const albumReducer = (state = initialState, action) => {
 
         case LOAD_ALBUMS: {
             const loadState = action.album;
-            // console.log("BEFORE newStatee", loadState);
-            // console.log("fsdfaf--- ", action);
 
             // action.album.forEach((album) => {
             //     console.log("Grreg", album);
             //     // "albums" is from ------  const albums = await res.json();
             //     loadState[album.id] = action.album;
             // });
-            // console.log("AFTER newStatee", loadState);
             return loadState;
         }
 
         case LOAD_ONE_ALBUM:
-            // newState = { ...state };
-            // console.log("what is album action.album", action.album); // null
-            // newState[action.album.id] = action.album;
-            // return newState;
             const oneAlbum = { ...action.album };
             return {
                 ...oneAlbum,
@@ -178,7 +162,6 @@ const albumReducer = (state = initialState, action) => {
 
         case REMOVE_ALBUM: {
             newState = { ...state };
-            // console.log("wha is action.albumID", newState[action.album]);
             delete newState[action.album];
             // return newState;
             return { ...newState };

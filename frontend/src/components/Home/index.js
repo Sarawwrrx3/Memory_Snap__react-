@@ -12,14 +12,10 @@ function Home() {
     const dispatch = useDispatch();
     // const photos = useSelector(state => state.photos)
     const { photoID } = useParams(); // EX: http://localhost:3000/photos/18 ----- 18 ("photoID") from ---- APP.js ---- path="/photos/:photoID"
-    console.log("what's photoID: ", photoID);
     
-    const params = useParams();
-    console.log("whats params", {params});
     
-    const photoSelect = useSelector((state) => state.photos[photoID]);
+    // const photoSelect = useSelector((state) => state.photos[photoID]);
     const photosArr = useSelector((state) => Object.values(state.photos));
-    console.log("reerere", photoSelect);
 
     useEffect(() => {
         dispatch(getAllThePhotos());

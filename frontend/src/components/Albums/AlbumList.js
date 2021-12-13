@@ -13,7 +13,6 @@ function AlbumList() {
     const user = useSelector((state) => state.session.user);
 
     const albumsArr = useSelector((state) => Object.values(state.albums));
-    // console.log("sdfasdfa", albumsArr);
 
     useEffect(() => {
         dispatch(getAlbums(user));

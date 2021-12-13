@@ -14,17 +14,16 @@ function EditPhotoModal() {
     const [imageUrl, setImageUrl] = useState("");
     const [description, setDescription] = useState("");
     const [validationErrors, setValidationErrors] = useState([]);
-    console.log(
-        "validationError. to get rid of yellow warnings",
-        validationErrors
-    );
+    // console.log(
+    //     "validationError. to get rid of yellow warnings",
+    //     validationErrors
+    // );
     // const validTitle = (e) => setTitle(e.target.value);
     // const validImageUrl = (e) => setImageUrl(e.target.value);
     // const validDescription = (e) => setDescription(e.target.value);
 
     // const userId = useSelector((state) => state.session?.user?.id);
     const photoSelect = useSelector((store) => store.photos[photoID]);
-    // console.log("gfsdfgdf", photoSelect);
 
     useEffect(() => {
         const errors = [];
@@ -37,35 +36,18 @@ function EditPhotoModal() {
         setValidationErrors(errors);
     }, [title, description, imageUrl]);
 
-    // useEffect(() => {
-    //     dispatch(getAllThePhotos());
-    // }, [dispatch]);
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     const post = { userId, title, description, imageUrl };
-    //     // const post = { userId,  albumID, title, description  };
-    //     console.log("fgasdf", photoID);
-    //     const editPost = await dispatch(editPhoto(post, photoID));
-
-    //     // const editPost = await dispatch(editPhoto(post));
-
-    //     if (editPost) {
-    //         history.push(`/photos/${photoID}`);
-    //         // history.push(`/photos/${photo.id}`);
-    //     }
-
-    //     return editPost;
-    // };
-
     const handleUpdate = async (e, id) => {
         e.preventDefault();
 
-        const payload = { ...photoSelect, title, description, imageUrl, id:photoID };
-        console.log("show photo modal photoID", photoID); // photoID 11
+        const payload = {
+            ...photoSelect,
+            title,
+            description,
+            imageUrl,
+            id: photoID,
+        };
         const updateThePhoto = await dispatch(editPhoto(payload, photoID));
         // photoSelect ------ "post" object
-        console.log("update the photo,", updateThePhoto);
         if (updateThePhoto) {
             history.push(`/photos/${photoID}`);
             // history.push(`/photos/${photoID.id}/edit`);

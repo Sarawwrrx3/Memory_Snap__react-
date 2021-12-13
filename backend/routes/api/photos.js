@@ -48,7 +48,6 @@ router.get(
     asyncHandler(async (req, res) => {
         const photoId = req.params.id;
         const photo = await Photo.findByPk(photoId);
-        // console.log("sdfsdfsdf", photo);
         return res.json(photo);
     })
 );
@@ -61,7 +60,6 @@ router.post(
     asyncHandler(async (req, res) => {
         // const { content, imgUrl, albumID } = req.body;
         // const body = req.body
-        // console.log(body, '<--------body')
         console.log("treelover", req.body);
         const photo = await Photo.create(req.body);
         const validateAddPhoto = validationResult(req);
@@ -69,7 +67,6 @@ router.post(
         if (validateAddPhoto.isEmpty()) {
             // res.redirect(`/${req.baseUrl}/${photo.id}`);
             await photo.save();
-            // console.log("This is the photo from the api backend.", photo);
             return res.json(photo);
         } else {
             return res.json({
@@ -86,13 +83,10 @@ router.put(
     // ValidationAddPhoto,
     handleValidationErrors,
     asyncHandler(async (req, res) => {
-        // console.log("sadfasdfds", req.body);
         const { id, title, description, imageUrl } = req.body;
-        console.log("treeloverwww", req.body);
         const photo = await Photo.findOne({where: {id}})
       
        const updatedPhoto = await photo.update({ title, description, imageUrl });
-        console.log("upppppddatedd photoo", updatedPhoto, photo);
             return res.json({photo});
         
     })
@@ -114,24 +108,14 @@ router.delete(
     // handleValidationErrors,
     asyncHandler(async (req, res, next ) => {
         const { photoID } = req.params;
-        // console.log("asdfwerwer -----", photoID);
         // const photo = await Photo.findByPk(photoID);
         // const deletePic = await Photo.findByPk(req.params.id);
-        // console.log("photo IDDD", photoID, req.params);
         const deletePic = await Photo.findByPk(photoID);
-        // console.log("gregsrfg", deletePic);
-        // if (deletePic) {
+
             await deletePic.destroy();
             // res.status(204).end();
             return res.json({photoID})
-        // } else {
-        //     next(photoNotFoundError(req.params.id));
-        // }
-        // await photo.destroy();
-        // return res.json(req.params.id);
-        // return res.json({ deletePic });
-        // return res.json({ photoId: photo.id });
-        // ===========================
+
     })
 );
 
