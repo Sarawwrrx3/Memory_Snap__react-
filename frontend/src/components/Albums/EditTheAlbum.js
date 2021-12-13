@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { editAlbum } from "../../store/album";
+import albumLogo from "./album-book.png";
 
 import "./album.css";
 
@@ -62,7 +63,7 @@ function EditTheAlbum() {
                         <div className="photo-detail">
                             <img
                                 id="image-upload"
-                                src={albumSelect?.imageUrl}
+                                src={albumLogo}
                                 alt={albumSelect?.title}
                             />
                             {/* <span className="photo-title">{name}</span> */}
@@ -82,16 +83,12 @@ function EditTheAlbum() {
                                 required
                             />
                         </label>
-
-                        
                     </div>
-                   
+
                     <button id="post-updated-photo-btn" type="submit">
                         Edit Photo
                     </button>
-                  
                 </form>
-
             </div>
         );
 }
