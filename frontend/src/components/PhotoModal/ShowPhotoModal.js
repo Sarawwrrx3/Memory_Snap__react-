@@ -35,7 +35,9 @@ function ShowPhotoModal() {
 
         if (deleteThePhoto) {
             history.push("/home");
-            window.location.reload()
+            window.location.reload();
+            // refreshes the page after going to Home page. T
+            //! MAKE SURE the delete functions works, BEFORE using this. 
         }
     };
 
