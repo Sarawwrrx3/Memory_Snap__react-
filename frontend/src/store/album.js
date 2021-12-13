@@ -108,7 +108,7 @@ export const removeAlbum = (albumID) => async (dispatch) => {
 
     if (response.ok) {
         const album = await response.json();
-        dispatch(remove(album.id));
+        dispatch(remove(album.albumID));
         return album;
     }
 };
@@ -171,7 +171,7 @@ const albumReducer = (state = initialState, action) => {
         case REMOVE_ALBUM: {
             newState = { ...state };
             // console.log("wha is action.albumID", newState[action.album]);
-            delete newState[action.album.id];
+            delete newState[+action.album];
             return newState;
         }
         default:

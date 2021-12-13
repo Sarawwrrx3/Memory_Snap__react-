@@ -102,13 +102,11 @@ router.delete(
     "/:albumID",
     // requireAuth,
     asyncHandler(async (req, res) => {
-        // const albumID = req.params.id;
+
         const { albumID } = req.params;
-        // const userID = req.user.id;
-        // console.log("photo IDDD", albumID, req.params);
 
         const album = await Album.findByPk(albumID);
-console.log("what is albummmmm", album);
+        // console.log("what is albummmmm", album);
         if (!album) throw new Error("Cannot find album");
         // const album = await Album.findOne({
         //     // where: { id: albumID, userID },
@@ -119,9 +117,10 @@ console.log("what is albummmmm", album);
             where: { id: albumID },
         });
 
-        res.sendStatus(200);
-        // return res.json({});
-        return albumID;
+        // res.sendStatus(200);
+        // // return res.json({});
+        // return albumID;
+        return res.status(200).json({ albumID });
     })
 );
 
