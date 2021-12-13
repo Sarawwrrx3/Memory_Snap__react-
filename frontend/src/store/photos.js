@@ -81,7 +81,7 @@ export const addPhoto = (photo) => async (dispatch) => {
 export const editPhoto = (post, photoID) => async (dispatch) => {
     const { albumID, userID, title, description } = post;
     // console.log("freedman", post);
-    console.log("id postttt ", post); // id
+    // console.log("id postttt ", post); // id
     // console.log("what is payload", payload); // undefined
     const response = await csrfFetch(`/api/photos/${photoID}`, {
         method: "PUT",
@@ -90,7 +90,7 @@ export const editPhoto = (post, photoID) => async (dispatch) => {
         },
         body: JSON.stringify(post),
     });
-    console.log("green dragon", response);
+    // console.log("green dragon", response);
 
     if (response.ok) {
         const photo = await response.json();

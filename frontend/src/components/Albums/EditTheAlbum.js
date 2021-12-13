@@ -36,16 +36,17 @@ function EditTheAlbum() {
             e.preventDefault();
 
             const payload = {
-                ...albumSelect,
+                // ...albumSelect,
                 title,
                 id: albumID,
             };
-            console.log("show photo modal albumID", albumID); // albumID 11
-            const updateThePhoto = await dispatch(editAlbum(payload, albumID));
+            // console.log("what is payloadddd", payload)
+            // console.log("show photo modal albumID", albumID); // albumID 11
+            const updateTheAlbum = await dispatch(editAlbum(payload, albumID));
             // albumSelect ------ "post" object
-            console.log("update the photo,", updateThePhoto);
-            if (updateThePhoto) {
-                history.push(`/photos/${albumID}`);
+            console.log("update the album,", updateTheAlbum);
+            if (updateTheAlbum) {
+                history.push(`/albums/${albumID}`);
                 // history.push(`/photos/${albumID.id}/edit`);
             }
         };
@@ -91,13 +92,9 @@ function EditTheAlbum() {
                     <button id="post-updated-photo-btn" type="submit">
                         Edit Photo
                     </button>
-                    {/* <NavLink to="/home">
-                    <button id="post-photo-btn" type="submit">
-                        Edit Post
-                    </button>
-                </NavLink> */}
+                  
                 </form>
-                {/* <DeletePhoto photoId={photoId} /> */}
+
             </div>
         );
 }

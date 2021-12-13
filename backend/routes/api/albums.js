@@ -130,6 +130,8 @@ router.delete(
 router.put(
     "/:id(\\d+)",
     asyncHandler(async (req, res) => {
+        const {id, title} = req.body;
+        console.log("what's reqqq.bodyyy", req.body);
         const editAlbumID = await Album.findByPk(req.params.id);
 
         await editAlbumID.update({ title });

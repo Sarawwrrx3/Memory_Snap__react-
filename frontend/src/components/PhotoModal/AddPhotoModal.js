@@ -119,7 +119,7 @@ function AddPhotoModal() {
                     <div className="right-section1">
                         <div className="select_album">
                             <select
-                                defaultValue="Select"
+                                // defaultValue="Select"
                                 name="album_name"
                                 id="album_name"
                                 value={albumID}

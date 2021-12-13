@@ -56,14 +56,18 @@ export const addNewAlbum = (album) => async (dispatch) => {
 };
 
 //  edit / update
-export const editAlbum = (album) => async (dispatch) => {
-    const response = await fetch(`/api/albums/${album.id}`, {
+export const editAlbum = (post, albumID) => async (dispatch) => {
+    const {title, userID,  tree} = post;
+    // console.log("id albumm postttt ", post);
+    // console.log("albumIDDDD", albumID);
+    const response = await csrfFetch(`/api/albums/${albumID}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(album),
+        body: JSON.stringify(post),
     });
+    console.log("rawr response:", response)
 
     if (response.ok) {
         const album = await response.json();
@@ -131,18 +135,22 @@ const albumReducer = (state = initialState, action) => {
         // return newState;
 
         case EDIT_ALBUM:
-            if (!state[action.album.id]) {
-                newState = { ...state, [action.album.id]: action.album };
-                return newState;
-            } else {
-                return {
-                    ...state,
-                    [action.album.id]: {
-                        ...state[action.album.id],
-                        ...action.album,
-                    },
-                };
-            }
+            newState = { ...state };
+            console.log("newwww stateee", newState);
+            newState[action.album.albumID] = action.album;
+            return newState;
+            // if (!state[action.album.id]) {
+            //     newState = { ...state, [action.album.id]: action.album };
+            //     return newState;
+            // } else {
+            //     return {
+            //         ...state,
+            //         [action.album.id]: {
+            //             ...state[action.album.id],
+            //             ...action.album,
+            //         },
+            //     };
+            // }
 
         case LOAD_ALBUMS: {
             const loadState = action.album;

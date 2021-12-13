@@ -21,6 +21,7 @@ import ShowPhotoModal from "./components/PhotoModal/ShowPhotoModal";
 import EditPhotoModal from "./components/PhotoModal/EditPhotoModal";
 import AddOneAlbum from "./components/Albums/AddOneAlbum";
 import SeeOneAlbum from "./components/Albums/SeeOneAlbum";
+import EditTheAlbum from "./components/Albums/EditTheAlbum";
 
 function App() {
     const dispatch = useDispatch();
@@ -76,6 +77,10 @@ function App() {
                     {/* for space purposes */}
                     <Route exact path="/albums/:albumID">
                         <SeeOneAlbum />
+                    </Route>
+                    {/* for space purposes */}
+                    <Route exact path="/albums/:albumID/edit">
+                        <EditTheAlbum />
                     </Route>
                     {/* for space purposes */}
                     
