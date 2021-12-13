@@ -37,6 +37,7 @@ function ShowPhotoModal() {
 
         if (deleteThePhoto) {
             history.push("/home");
+            window.location.reload()
         }
     };
 

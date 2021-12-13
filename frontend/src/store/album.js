@@ -172,7 +172,8 @@ const albumReducer = (state = initialState, action) => {
             newState = { ...state };
             // console.log("wha is action.albumID", newState[action.album]);
             delete newState[action.album];
-            return newState;
+            // return newState;
+            return { ...newState };
             // initialState: [...state.newState.filter(album => album !== action.album )];
         }
         default:

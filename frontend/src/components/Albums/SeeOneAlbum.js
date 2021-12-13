@@ -26,6 +26,7 @@ function SeeOneAlbum() {
         console.log("deleteAlbummmmm", deleteTheAlbum);
         if (deleteTheAlbum) {
             history.push("/albums");
+            window.location.reload()
         }
     };
 
