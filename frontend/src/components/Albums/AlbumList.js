@@ -29,8 +29,8 @@ function AlbumList() {
             </div> */}
             <div className="main-album-container">
                 {/* {if (!albums) {}} */}
-                {albumsArr?.map((album) => (
-                    <div className="album-image-container" key={album.id}>
+                {albumsArr?.map((album, index) => (
+                    <div className="album-image-container" key={index}>
                         <Link
                             className="link-per-album"
                             to={`/albums/${album.id}`}

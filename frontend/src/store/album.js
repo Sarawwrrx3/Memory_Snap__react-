@@ -1,7 +1,6 @@
 // import { useSelector } from "react-redux";
 import { csrfFetch } from "./csrf";
 
-
 const CREATE_ALBUM = "albums/CREATE_ALBUM";
 const EDIT_ALBUM = "albums/EDIT_ALBUM";
 const LOAD_ALBUMS = "albums/LOAD_ALBUMS";
@@ -13,12 +12,10 @@ export const add = (newAlbum) => ({
     newAlbum,
 });
 
-
 const edit = (album) => ({
     type: EDIT_ALBUM,
     album,
 });
-
 
 const loadAlbums = (album) => ({
     type: LOAD_ALBUMS,
@@ -34,8 +31,6 @@ const remove = (album) => ({
     type: REMOVE_ALBUM,
     album,
 });
-
-
 
 // add new album
 export const addNewAlbum = (album) => async (dispatch) => {
@@ -60,7 +55,6 @@ export const addNewAlbum = (album) => async (dispatch) => {
     }
 };
 
-
 //  edit / update
 export const editAlbum = (album) => async (dispatch) => {
     const response = await fetch(`/api/albums/${album.id}`, {
@@ -78,11 +72,10 @@ export const editAlbum = (album) => async (dispatch) => {
     }
 };
 
-
-// get more than one / get many 
+// get more than one / get many
 export const getAlbums = (user) => async (dispatch) => {
     const res = await fetch(`/api/users/${user.id}/albums`);
-        // const res = await fetch(`/api/albums`);
+    // const res = await fetch(`/api/albums`);
 
     // console.log(res, "<----res");
 
@@ -120,24 +113,22 @@ export const removeAlbum = (albumID) => async (dispatch) => {
     }
 };
 
-
-
 const initialState = {};
 
 const albumReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case CREATE_ALBUM:
-            console.log("AAAAAACTION", action);
+            // console.log("AAAAAACTION", action);
             if (!state[action.newAlbum.id]) {
                 newState = { ...state, [action.newAlbum.id]: action.newAlbum };
             }
             return newState;
-            // newState = {};
-            // action.albums.forEach((album) => {
-            //     newState[album.id] = album;
-            // });
-            // return newState;
+        // newState = {};
+        // action.albums.forEach((album) => {
+        //     newState[album.id] = album;
+        // });
+        // return newState;
 
         case EDIT_ALBUM:
             if (!state[action.album.id]) {
@@ -155,35 +146,38 @@ const albumReducer = (state = initialState, action) => {
 
         case LOAD_ALBUMS: {
             const loadState = action.album;
-            console.log("BEFORE newStatee", loadState);
-            console.log("fsdfaf--- ", action);
-            
-            
+            // console.log("BEFORE newStatee", loadState);
+            // console.log("fsdfaf--- ", action);
+
             // action.album.forEach((album) => {
             //     console.log("Grreg", album);
             //     // "albums" is from ------  const albums = await res.json();
             //     loadState[album.id] = action.album;
             // });
-            console.log("AFTER newStatee", loadState);
+            // console.log("AFTER newStatee", loadState);
             return loadState;
         }
 
         case LOAD_ONE_ALBUM:
-            newState = { ...state };
-            newState[action.album.id] = action.album;
-            return newState;
+            // newState = { ...state };
+            // console.log("what is album action.album", action.album); // null
+            // newState[action.album.id] = action.album;
+            // return newState;
+            const oneAlbum = { ...action.album };
+            return {
+                ...oneAlbum,
+            };
 
         case REMOVE_ALBUM: {
             newState = { ...state };
-            console.log("wha is action.albumID", action.albumID);
-            delete newState[action.album.albumID];
+            // console.log("wha is action.albumID", newState[action.album]);
+            delete newState[action.album.id];
             return newState;
         }
         default:
             return state;
-            // return initialState;
+        // return initialState;
     }
 };
-
 
 export default albumReducer;

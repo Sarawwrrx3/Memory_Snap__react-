@@ -18,12 +18,12 @@ function SeeOneAlbum() {
         dispatch(getOneAlbum(albumID));
     }, [dispatch, albumID]);
 
-    // after deleting the album, goes to home page
+    // after deleting the album, goes to album page
     const handleDelete = async (e, id) => {
         e.preventDefault();
         // console.log("seeOneAlbummm albumID:", id);
-        const deleteTheAlbum = await dispatch(removeAlbum(id));
-
+        const deleteTheAlbum = dispatch(removeAlbum(id));
+        console.log("deleteAlbummmmm", deleteTheAlbum);
         if (deleteTheAlbum) {
             history.push("/albums");
         }

@@ -70,7 +70,7 @@ router.get(
                 userID: id,
             },
         });
-        console.log("qwerty", albums);
+        // console.log("qwerty", albums);
         res.json({ albums });
     })
 );

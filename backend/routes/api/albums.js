@@ -9,7 +9,7 @@ const {
     requireAuth,
 } = require("../../utils/auth");
 const csrfProtection = csrf({ cookie: true });
-const {  Album } = require("../../db/models");
+const { Album } = require("../../db/models");
 // const { request } = require("../../app");
 
 const router = express.Router();
@@ -49,9 +49,13 @@ router.get(
     // "/:id",
     "/:id(\\d+)",
     asyncHandler(async (req, res, next) => {
-        const album = await Album.findByPk(req.params.id, {
-            include: [Photo],
-        });
+        const albumID = req.params.id;
+        const album = await Album.findByPk(
+            albumID
+            // , {
+            // include: [Photo],
+            // }
+        );
         return res.json(album);
         // console.log("hello",album)
     })
@@ -63,7 +67,7 @@ router.post(
     handleValidationErrors,
     asyncHandler(async function (req, res) {
         const album = await Album.create(req.body);
-        console.log("gfdsa", album );
+        // console.log("gfdsa", album);
         // const validateAddAlbum = validationResult(req);
 
         // if (validateAddAlbum.isEmpty()) {
@@ -101,20 +105,23 @@ router.delete(
         // const albumID = req.params.id;
         const { albumID } = req.params;
         // const userID = req.user.id;
-                console.log("photo IDDD", albumID, req.params);
-
+        // console.log("photo IDDD", albumID, req.params);
 
         const album = await Album.findByPk(albumID);
-
+console.log("what is albummmmm", album);
+        if (!album) throw new Error("Cannot find album");
         // const album = await Album.findOne({
         //     // where: { id: albumID, userID },
         //     where: { albumID, userID },
         // });
- 
-            await album.destroy();
+
+        await Album.destroy({
+            where: { id: albumID },
+        });
 
         res.sendStatus(200);
-        return res.json({ albumID });
+        // return res.json({});
+        return albumID;
     })
 );
 
